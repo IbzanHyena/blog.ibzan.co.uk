@@ -1,0 +1,17 @@
+body { padding: 20px 15%; font-size: 18px; font-family: sans; }
+.header { list-style: "§"; }
+.header::marker { font-family: monospace; color: #aaa; }
+.header:hover { display: list-item; text-decoration: underline; }
+.header>a { text-decoration: unset; color: unset; }
+a:hover { text-decoration-thickness: 2px; }
+::-moz-selection { background: #ff0; }
+::selection { background: #ff0; }
+.centred { margin-left: auto; margin-right: auto; }
+table { width: 50%; }
+th.title { text-align: left; }
+.title { width: 80%; }
+td.size { font-style: italic; }
+.size { text-align: right; }
+td.date { font-family: monospace; }
+.date { text-align: right; }
+
