@@ -1,3 +1,5 @@
 [submodule "blog"]
 	path = blog
 	url = https://github.com/IbzanHyena/blog.git
+	branch = main
+

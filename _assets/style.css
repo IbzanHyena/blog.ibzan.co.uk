@@ -7,11 +7,9 @@ a:hover { text-decoration-thickness: 2px; }
 ::-moz-selection { background: #ff0; }
 ::selection { background: #ff0; }
 .centred { margin-left: auto; margin-right: auto; }
-table { width: 50%; }
+table { width: 66.67%; }
 th.title { text-align: left; }
 .title { width: 80%; }
-td.size { font-style: italic; }
-.size { text-align: right; }
 td.date { font-family: monospace; }
 .date { text-align: right; }
 
