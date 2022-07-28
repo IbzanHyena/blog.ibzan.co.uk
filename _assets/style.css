@@ -1,4 +1,4 @@
-body { padding: 20px 15%; font-size: 18px; font-family: sans; }
+body { padding: 20px 15%; font-size: 18px; font-family: sans-serif; }
 .header { list-style: "§"; }
 .header::marker { font-family: monospace; color: #aaa; }
 .header:hover { display: list-item; text-decoration: underline; }
