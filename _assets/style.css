@@ -12,5 +12,13 @@ table.contents { width: 66.67%; }
 .contents .title { width: 80%; }
 .contents td.date { font-family: monospace; }
 .contents .date { text-align: right; }
-@media print { body { padding: unset; } }
+@media print {
+	body { padding: unset; }
+  :not(.header) {
+	  a:after {
+			content: ' [' attr(href) ']';
+			font-family: monospace;
+		}
+	}
+}
 
