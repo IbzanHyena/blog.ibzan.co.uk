@@ -13,6 +13,7 @@ jobs:
       - uses: IbzanHyena/setup-j@v1
         with:
           j-version: "903"
+          addons: "general/dirtrees"
       - name: Install relimport
         run: |
           # Find ~Projects directory to clone into
