@@ -7,7 +7,7 @@ a:hover { text-decoration-thickness: 2px; }
 ::-moz-selection { background: #ff0; }
 ::selection { background: #ff0; }
 .centred { margin-left: auto; margin-right: auto; }
-.contents table { width: 66.67%; }
+table.contents { width: 66.67%; }
 .contents th.title { text-align: left; }
 .contents .title { width: 80%; }
 .contents td.date { font-family: monospace; }
