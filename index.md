@@ -13,12 +13,11 @@ Thanks for stopping by!
 If you're looking for code, check my [GitHub][github].
 Want to get in touch?
 I'd love to hear from you if you have any thoughts relating to the content here!
-The most reliable method is [email][email] or otherwise [Twitter][twitter].
-I also have a <a rel="me" href="https://queer.party/@ibzan">Mastodon account</a> and an [FA][furaffinity] page which I keep mostly up to date with art.
+The most reliable method is [email][email].
+I also have a <a rel="me" href="https://queer.party/@ibzan">Mastodon account</a>, and an [FA][furaffinity] page which I keep mostly up to date with art.
 I probably won't read any notes sent there in a timely fashion though.
 
 [github]: https://github.com/IbzanHyena
 [email]: mailto:ibzan@ibzan.co.uk
-[twitter]: https://twitter.com/IbzanHyena
 [furaffinity]: https://www.furaffinity.net/user/ibzanhyena/
 
