@@ -8,6 +8,7 @@ This site will contain various musings - I don't have any specific plans for the
 
 You may notice that the design is relatively minimal.
 That's because I expect people will use the reader mode present in most modern browers to read posts, so there's minimal value in going overboard on the design.
+The main font used across this website is the excellent [Heliotrope][heliotrope] by Matthew Butterick.
 
 Thanks for stopping by!
 If you're looking for code, check my [GitHub][github].
@@ -18,6 +19,7 @@ I also have a <a rel="me" href="https://queer.party/@ibzan">Mastodon account</a>
 I probably won't read any notes sent there in a timely fashion though.
 
 [github]: https://github.com/IbzanHyena
+[heliotrope]: https://mbtype.com/fonts/heliotrope/
 [email]: mailto:ibzan@ibzan.co.uk
 [furaffinity]: https://www.furaffinity.net/user/ibzanhyena/
 
