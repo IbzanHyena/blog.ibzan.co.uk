@@ -1,5 +1,5 @@
 body { padding: 20px 15%; font-size: 18px; font-family: sans-serif; }
-.header { list-style: "§"; }
+.header { list-style: "§ "; }
 .header::marker { color: #aaa; }
 .header:hover { display: list-item; text-decoration: underline; }
 .header>a { text-decoration: unset; color: unset; }
@@ -13,4 +13,5 @@ table.contents { width: 66.67%; }
 .contents td.date { font-family: monospace; }
 .contents .date { text-align: right; }
 blockquote.aside { padding-left: 0.5em; padding-top: 0.125em; padding-bottom: 0.125em; border-left: 0.125em solid black; }
+svg { fill: currentColor; stroke: currentColor; }
 @media print { body { padding: unset; } }
