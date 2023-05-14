@@ -21,6 +21,18 @@ table.contents { width: 66.67%; }
 .contents td.date { font-family: monospace; }
 .contents .date { text-align: right; }
 blockquote.aside { padding-left: 0.5em; padding-top: 0.125em; padding-bottom: 0.125em; border-left: 0.125em solid; }
+img { max-width: 100%; max-height: 100%; }
+
+div.header-img {
+    left: 50%;
+    right: 50%;
+    width:90vw;
+    margin-left: -45vw;
+    margin-right: -45vw;
+    max-width: 90vw;
+    position: relative;
+    overflow: hidden;
+}
 
 /* Colour scheme stuff */
 @media (prefers-color-scheme:dark) {
