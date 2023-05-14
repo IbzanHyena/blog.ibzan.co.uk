@@ -1,5 +1,5 @@
 /* Shape stuff - independent of colour scheme */
-body { padding: 20px 15%; font-size: 18px; font-family: heliotrope_4,sans-serif; }
+body { padding: 0 15% 2em; font-size: 18px; font-family: heliotrope_4,sans-serif; }
 code { font-family: monospace; }
 .header { list-style: "§ "; }
 .header:hover { display: list-item; text-decoration: underline; }
