@@ -389,7 +389,7 @@ J does have a more typical approach with a family of conjunctions ([`@`&nbsp;ato
 For certain classes of problems the two main [modifier trains][nuvoc-modifier-trains], [hooks][nuvoc-hook] and [forks][nuvoc-fork], which deal with combining verbs to make another verb.
 Forks and hooks can be difficult to read at first since they are effectively invisible, but they become easier to read with experience.
 
-When used monadically, forks may be familiar as the S' combinator, and hooks as the S combinator.
+When used monadically, forks may be familiar as the S&prime; combinator, and hooks as the S combinator.
 
 A fork is made of two monads (or dyads), and a dyad.
 The two verbs either side process the input arguments, and then the middle dyad combines their results.
