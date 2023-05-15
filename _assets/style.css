@@ -35,7 +35,7 @@ p a, .contents a {
     text-decoration: unset;
 }
 
-p a { 
+p a.external-link { 
     font-variant-caps: small-caps;
     font-family: heliotrope_4_caps,serif;
 }
