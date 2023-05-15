@@ -99,8 +99,6 @@ Some example verbs:
 
 ```
    NB. Addition
-   +
-%%% + %%%
    NB. Addition in action
    1 + 2
 %%% 1 + 2 %%%
@@ -125,8 +123,6 @@ Some example modifiers:
 
 ```j
    NB. / insert, which puts the verb it modifies between elements of an array
-   +/
-%%% +/ %%%
    +/ 1 2 3
 %%% +/ 1 2 3 %%%
    NB. This is equivalent to:
@@ -134,8 +130,6 @@ Some example modifiers:
 %%% 1 + 2 + 3 %%%
    NB. @: at, which is function composition
    NB. add then square
-   *: @: +
-%%% *: @: + %%%
    5 *: @: + 3
 %%% 5 *: @: + 3 %%%
 ```
@@ -206,25 +200,29 @@ When separated out into parts that each perform a specific role, it becomes more
 I shan&rsquo;t go too deep into explaining this implementation since it isn&rsquo;t the purpose of the article, but a brief explanation is included.
 
 ```j
-NB. Determine whether we are mapping an upper case letter,
-NB. lower case letter, or nothing at all.
-NB. 0 = nothing
-NB. 1 = upper case
-NB. 2 = lower case
-regime =. (((_1 1 $~ #) + a. i. ]) 'AZaz') >.@:-:@:I. ]
-NB. Perform the fundamental rot13 operation: subtract an offset,
-NB. add 13, modulo 26, then add the offset back.
-NB. The offset is necessary to account for treating ASCII characters as numbers
-NB. ranging from 0-255.
-rot13lim =. [ + 26 | 13 + -~
-NB. Versions of the above for lower and upper case
-mapLower =. (a.i.'a')&rot13lim
-mapUpper =. (a.i.'A')&rot13lim
-NB. Gerund + agenda to dispatch the appropriate verb
-NB. Using ] same to leave non-letters alone
-map =. ]`mapUpper`mapLower@.regime
-NB. Convert to/from characters using &. and map the numbers
-rot13 =: map&.(a.&i.)
+   NB. Determine whether we are mapping an upper case letter,
+   NB. lower case letter, or nothing at all.
+   NB. 0 = nothing
+   NB. 1 = upper case
+   NB. 2 = lower case
+   regime =. (((_1 1 $~ #) + a. i. ]) 'AZaz') >.@:-:@:I. ]
+   
+   NB. Perform the fundamental rot13 operation: subtract an offset,
+   NB. add 13, modulo 26, then add the offset back.
+   NB. The offset is necessary to account for treating ASCII characters as numbers
+   NB. ranging from 0-255.
+   rot13lim =. [ + 26 | 13 + -~
+   
+   NB. Versions of the above for lower and upper case
+   mapLower =. (a.i.'a')&rot13lim
+   mapUpper =. (a.i.'A')&rot13lim
+   
+   NB. Gerund + agenda to dispatch the appropriate verb
+   NB. Using ] same to leave non-letters alone
+   map =. ]`mapUpper`mapLower@.regime
+   
+   NB. Convert to/from characters using &. and map the numbers
+   rot13 =: map&.(a.&i.)
 ```
 
 NuVoc links: [`$`&nbsp;shape][nuvoc-shape], [`~`&nbsp;passive][nuvoc-passive], [`#`&nbsp;tally][nuvoc-tally], [`+`&nbsp;plus][nuvoc-plus], [`a.`&nbsp;alphabet][nuvoc-alphabet], [`i.`&nbsp;index of][nuvoc-index-of], [`]`&nbsp;same][nuvoc-samer], [`>.`&nbsp;ceiling][nuvoc-ceiling], [`@:`&nbsp;at][nuvoc-at], [`-:`&nbsp;halve][nuvoc-halve], [`I.`&nbsp;indices][nuvoc-indices], [`[`&nbsp;left][nuvoc-left], [`|`&nbsp;residue][nuvoc-residue], [`&`&nbsp;bond][nuvoc-bond], [`` ` ``&nbsp;tie][nuvoc-tie], [`@.`&nbsp;agenda][nuvoc-agenda], and [`&.`&nbsp;under (dual)][nuvoc-under-dual].
