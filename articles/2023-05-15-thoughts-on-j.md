@@ -1,6 +1,6 @@
 // title: Thoughts on J
 // author: Ibzan
-// date: 2022-09-19
+// date: 2023-05-15
 
 # Thoughts on J
 
