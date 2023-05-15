@@ -1,19 +1,39 @@
 /* Shape stuff - independent of colour scheme */
-body { padding: 0 15% 2em; font-size: 18px; font-family: heliotrope_4,sans-serif; }
+body { 
+    padding: 0 15% 2em;
+    font-family: heliotrope_4, sans-serif;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "calt", "kern", "liga", "zero";
+    font-size: 18px;
+    hyphens: auto;
+}
+
+code { hyphens: none; }
+h1 { font-size: 24px; }
+h2 { font-size: 19px; }
+h3 { font-size: 18.5px; }
+
+@media only screen and (max-width: 768px) {
+    body { padding: 0 5% 2em; }
+}
+
 code { font-family: monospace; }
 .header { list-style: "§ "; }
 .header:hover { display: list-item; text-decoration: underline; }
 .header>a { text-decoration: unset; color: unset; }
+
 p a, .contents a {
     padding-left: 0.2em;
     padding-right: 0.2em;
     color: unset;
     text-decoration: unset;
 }
+
 p a { 
-    font-variant: small-caps;
+    font-variant-caps: small-caps;
     font-family: heliotrope_4_caps,serif;
 }
+
 .centred { margin-left: auto; margin-right: auto; }
 table.contents { width: 66.67%; }
 .contents th.title { text-align: left; }
@@ -68,4 +88,13 @@ div.header-img {
 svg { fill: currentColor; stroke: currentColor; }
 
 /* Print layout stuff */
-@media print { body { padding: unset; } }
+@media print { 
+    body {
+        padding: unset;
+        font-size: 12pt;
+    }
+
+    h1 { font-size: 16pt; }
+    h2 { font-size: 13pt; }
+    h3 { font-size: 12.5pt; }
+}
