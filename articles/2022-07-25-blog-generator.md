@@ -15,9 +15,9 @@ At a future point in time I may write an entire blog post introducing J as a lan
 
 ### Why J?
 
-Because I've been writing short J programs recently and wanted to try a larger project.
+Because I&rsquo;ve been writing short J programs recently and wanted to try a larger project.
 So far, all of my J code has been intended to run from the J terminal.
-This would be different - it needs to be run from the command line, ideally on a CI runner somewhere.
+This would be different &mdash; it needs to be run from the command line, ideally on a CI runner somewhere.
 I also wanted to see how J tackles larger projects.
 
 ### About J
@@ -31,7 +31,7 @@ An array has a _rank_, which is the number of dimensions in it.
 A rank zero array is just a single element.
 A rank one array is a vector, rank two is a matrix (although they do not behave exactly the same as a matrix does in linear algebra at all times), and so on.
 
-J, like most array languages, is read right-to-left and has no "operator" precedence (strictly speaking J primitives are not operators, but it's close enough for now).
+J, like most array languages, is read right-to-left and has no &ldquo;operator&rdquo; precedence (strictly speaking J primitives are not operators, but it&rsquo;s close enough for now).
 Instead, the interpreter applies operators in the order it encounters them.
 This system has both advantages and disadvantages.
 The main advantage is that the lack of operator precedence greatly simplifies writing code and interpreting it, especially in a language with a large number of primitives.
@@ -104,15 +104,15 @@ At the time of writing, md supports the following Markdown features:
 - As an extension, the ability to run J code in the document
 
 Although small, this is generally all I use in a typical block of writing.
-Any further features required can always be added later, since it's my project.
+Any further features required can always be added later, since it&rsquo;s my project.
 Or I can move to a less janky system.
 
-md's strategy is as follows.
+md&rsquo;s strategy is as follows.
 First, it breaks the input text into paragraphs, which are separated by two line feed (LF) characters.
 Then, it splits each paragraph into sections separated by line breaks (space space LF) and adds an HTML line break inside each of them.
 Then, it classifies the paragraph based on a guess about what kind of paragraph it is.
 
-This leads to md having a lot of edge cases that don't work very well.
+This leads to md having a lot of edge cases that don&rsquo;t work very well.
 Nested lists, lists embedded within paragraphs and, empty lines in code blocks all fail to work as they should according to the Markdown specification.
 If I move away from md for any reason, it will be because I want to avoid having to completely restructure it to make it more robust and support more features.
 
@@ -126,7 +126,7 @@ blog is also written in J, and generates HTML files and an index page from a giv
 blog uses template HTML files to insert relevant data from the Markdown into pre-made pages.
 It also extracts metadata from the file to generate the index page, and copies assets into the finished site.
 
-The biggest pain point when creating blog was actually that last one - copying assets.
+The biggest pain point when creating blog was actually that last one &mdash; copying assets.
 J does not have any in-built recursive directory copying utilities, and the one I wrote somehow resulted in the interpreted segfaulting.
 As a backup, I resorted to invoking `cp -r` on the command line and not thinking too hard about it.
 
@@ -137,19 +137,19 @@ Aside from that, blog is mostly uninteresting glue code to perform the aforement
 J is not a widely-popular language.
 This means that a lot of the common infrastructure you might find for other languages is missing.
 I was able to find a [Docker image][docker] that creates a J environment, which had a grand total of 560 Docker pulls at time of writing.
-For comparison, Python's official Docker image has over 1 billion pulls.
+For comparison, Python&rsquo;s official Docker image has over 1 billion pulls.
 
 When deciding how to deploy this site, I settled on using GitHub Actions to build and deploy the site on each push.
 This necessitates a step that either installs the J interpreter or runs J within a Docker image.
 After some further deliberation I opted to install the J interpreter in the CI runner, and then invoke it from the command line in later steps.
 
-As you may expect, I didn't find any pre-existing Actions that did this, so I had to write my own.
+As you may expect, I didn&rsquo;t find any pre-existing Actions that did this, so I had to write my own.
 Fortunately, composite actions (i.e. an action that just runs shell scripts) are relatively easy to make and a mere 16 lines of YAML and 17 lines of bash were needed to install J.
 The action can be found [here][setup-j] should you wish to use it yourself.
 
 ## Blog Repo Glue
 
-There isn't much to write about the repo the blog itself lives in, containing HTML templates, CSS, and the dependencies as submodules for ease of installation.
+There isn&rsquo;t much to write about the repo the blog itself lives in, containing HTML templates, CSS, and the dependencies as submodules for ease of installation.
 To run the CI itself was just a matter of sticking a bit more glue to go with my glue.
 One CI script later and the blog is being automatically re-deployed on commit.
 Glorious.
@@ -160,13 +160,13 @@ Despite all the difficulties involved with various stages of the project, over a
 As a language, J is not particularly well-suited to this genre of problem. Part of this is because of the array model that J uses, called the flat array model.
 In the flat array model, all arrays are rectangular pieces of data in some number of dimensions.
 A string in J is a vector (rank one array) of characters.
-This is one of the problems - to represent a collection of strings of varying length, they must either be padded with fill characters (typically spaces) to form a rectangle, or boxed (stored behind a pointer) so that the array of _boxes_ can be a rectangle.
-Since I wanted to avoid adding extra whitespace to the documents I'm working with, boxing was required, but this adds complexity to the code needed to manipulate the text.
+This is one of the problems &mdash; to represent a collection of strings of varying length, they must either be padded with fill characters (typically spaces) to form a rectangle, or boxed (stored behind a pointer) so that the array of _boxes_ can be a rectangle.
+Since I wanted to avoid adding extra whitespace to the documents I&rsquo;m working with, boxing was required, but this adds complexity to the code needed to manipulate the text.
 
 There are different array models out there.
 Of particular note in this scenario is the based array model, employed by [BQN][BQN].
-Alongside BQN's representation of strings, it vastly simplifies storing an array of different-length strings.
-I won't go into too much detail about it here (you can read further about it in the [BQN documentation][based]), but it allows for storing a vector of strings as one would in a typical programming language, which eases manipulation.
+Alongside BQN&rsquo;s representation of strings, it vastly simplifies storing an array of different-length strings.
+I won&rsquo;t go into too much detail about it here (you can read further about it in the [BQN documentation][based]), but it allows for storing a vector of strings as one would in a typical programming language, which eases manipulation.
 
 However, there are certain parts that are still very elegant within J to write.
 Lots of small operations are quite pleasant or have nice solutions.
@@ -180,7 +180,7 @@ Reducing snippets like this can be a fun diversion and is one of the draws of th
 I expect to write plenty more J in the future, although it is far from the only language I like writing.
 Rust, F#, Python, Haskell, C#, and sometimes C are also languages I like a lot (or at least have a love-hate relationship with), so expect to see an appearance from them at some point on this blog.
 There are also a few other languages I have in mind that I might try out at some point.
-Outside of programming I may write about any other hobbies that I feel particularly inspired to, but so far I don't have any plans.
+Outside of programming I may write about any other hobbies that I feel particularly inspired to, but so far I don&rsquo;t have any plans.
 
 Until next time,  
 Ibzan
