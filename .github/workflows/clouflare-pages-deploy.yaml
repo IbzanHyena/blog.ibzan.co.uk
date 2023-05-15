@@ -23,7 +23,7 @@ jobs:
           popd
       - name: Build site
         env:
-          MD_INTERNAL_DOMIN: "https://blog.ibzan.co.uk"
+          MD_INTERNAL_DOMAIN: "https://blog.ibzan.co.uk"
         run: |
           ijconsole blog/run.ijs .
       - name: Publish
