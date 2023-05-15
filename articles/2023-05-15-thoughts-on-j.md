@@ -270,8 +270,10 @@ A basic example is repeating an operation for a fixed number of times.
    *: i. 5
 %%% *: i. 5 %%%
    NB. Square twice using *: *:
+   *: *: i. 5
 %%% *: *: i. 5 %%%
    NB. Square twice using ^:
+   *:^:2 i. 5
 %%% *:^:2 i. 5 %%%
 ```
 
