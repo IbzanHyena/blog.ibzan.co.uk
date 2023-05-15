@@ -15,7 +15,7 @@ As a heads-up warning, this post has ended up being quite long.
 It might take a long time to read (say, 60&ndash;75 minutes) and digest (depends how much you grok the array language concepts).
 
 For the most part, J has been a great language with a lot of cool innovations compared to paradigms I&rsquo;ve worked with before.
-I do have some gripes with the language as well, which I&rsquo;ll talk about as well.
+I do have some gripes with the language as well, which I&rsquo;ll talk about too.
 Finally, I&rsquo;ll cover some of the changes I would make to an array language like J if I were designing my own.
 
 This article contains some moderately complex J code.
