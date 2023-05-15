@@ -18,6 +18,12 @@ h3 { font-size: 18.5px; }
 }
 
 code { font-family: monospace; }
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 .header { list-style: "§ "; }
 .header:hover { display: list-item; text-decoration: underline; }
 .header>a { text-decoration: unset; color: unset; }
