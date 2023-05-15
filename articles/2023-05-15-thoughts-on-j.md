@@ -322,7 +322,7 @@ The inverse is also worked out for verbs that are made out of existing verbs wit
 %%% +/\ b. _1 %%%
 ```
 
->>> Strictly speaking, J calls this operation the _obverse_ not the inverse.
+>>> Strictly speaking, J calls this operation the _obverse_, not the inverse.
 The difference is that the obverse can be manually assigned to be something else (but it is the inverse by default for supported primitives).
 
 NuVoc links: [`+`&nbsp;plus][nuvoc-plus], [`/`&nbsp;insert][nuvoc-insert], [`\`&nbsp;prefix][nuvoc-prefix]. [`-`&nbsp;minus][nuvoc-minus], [`b.`&nbsp;verb info][nuvoc-verb-info] [`|.!.n`&nbsp;shift][nuvoc-shift], [`:.`&nbsp;assign adverse][nuvoc-adverse].
