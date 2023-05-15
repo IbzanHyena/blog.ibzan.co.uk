@@ -3,12 +3,12 @@ body {
     padding: 0 15% 2em;
     font-family: heliotrope_4, sans-serif;
     text-rendering: optimizeLegibility;
-    font-feature-settings: "calt", "kern", "liga", "zero";
+    font-feature-settings: "calt", "kern", "liga", "onum", "zero";
     font-size: 18px;
     hyphens: auto;
 }
 
-code { hyphens: none; }
+code { font-feature-settings: "onum" off; hyphens: none; }
 h1 { font-size: 24px; }
 h2 { font-size: 19px; }
 h3 { font-size: 18.5px; }
