@@ -36,6 +36,7 @@ p a {
 
 a code { font-family: monospace; font-variant-caps: normal; }
 
+.centred-text { text-align: center; }
 .centred { margin-left: auto; margin-right: auto; }
 table.contents { width: 66.67%; }
 .contents th.title { text-align: left; }
