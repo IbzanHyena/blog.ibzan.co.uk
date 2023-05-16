@@ -6,7 +6,7 @@
 
 _I would like to apologise in advance for the inevitable semantic satiation you will experience when reading the word &ldquo;type&rdquo; in this post. Sorry._
 
-If you ever write [Agda][Agda], you will come across the following import statement in practically every piece of code you read:
+If you ever read or write [Agda][Agda], you will come across the following import statement in practically every piece of code you read:
 
 ```agda
 open import Relation.Binary.PropositionalEquality
@@ -25,9 +25,9 @@ So, let&rsquo;s explore what it means for things to be equivalent in Agda.
 ## Function signatures and types
 
 To understand what equality means and how it is written in Agda, we must first understand how type signatures work in functional languages.
-If you are already familiar with them, I&rsquo;ll be talking about how they&rsquo;re different in a dependently-typed language, too.
+If you are already familiar with them, you can [skip this section](#types-and-functions-in-agda).
 
-Most programmers come from an proceduaral background, and proceduaral languages tend to use a syntax for functions descended from either C or Pascal.
+Most programmers come from a procedural background, and procedural languages tend to use a syntax for functions descended from either C or Pascal.
 
 ```c
 int add(int a, int b);
@@ -37,7 +37,7 @@ int add(int a, int b);
 function add(a: int, b: int): int;
 ```
 
->>> Sometimes the terms _imperative_ and _procedural_ are used interchangably.
+>>> Sometimes the terms _imperative_ and _procedural_ are used interchangeably.
 They are, however, two distinct paradigms of programming, albeit with a large overlap.  
 _Imperative_ programming refers to the use of sequential statements to change a program&rsquo;s state.
 It focuses on describing exactly how the program works, step-by-step.  
@@ -66,7 +66,7 @@ type Int2Adic = function(a: int, b: int) : int;
 
 These function types follow the same pattern as the signatures themselves.
 
-The proceduaral way is not the only way
+The procedural way is not the only way
 Within functional programming, there are also two main styles &mdash; Haskell-style, and ML-style.
 
 ```
@@ -92,8 +92,8 @@ Both of them use the same syntax, derived from mathematics:
 int -> int -> int
 ```
 
-This is exactly what is on the right hand side of the `::` in Haskell-style syntax.
-In fact, `::` in Haskell descendents just specifies the type of the term to its left.
+This is exactly what is on the right-hand side of the `::` in Haskell-style syntax.
+In fact, `::` in Haskell descendants just specifies the type of the term to its left.
 The ML-based languages use this too, but do not display it as explicitly in every function definition.
 
 There&rsquo;s a key difference with functions in functional languages compared to procedural ones, and it&rsquo;s hinted to by these arrows.
@@ -135,7 +135,7 @@ data Bool : Set where
   true false : Bool
 ```
 
-This is definining two _constructors_ for `Bool`.
+This is defining two _constructors_ for `Bool`.
 Each of these has type `Bool` &mdash; no additional information is needed to construct the type.
 `true` and `false` can be used straight away as two values belonging to the type `Bool`.
 
@@ -169,7 +169,7 @@ Our types just got more advanced!
 This one takes a parameter, `A`, which is another type, and produces a type.
 The `nothing` constructor isn&rsquo;t too dissimilar from `true` or `false`; by this point, all the required information has been provided, so it is just a value.
 
-`just` is more involved &mdash; it involves a value of type `A` in order to make the `Maybe A`.
+`just` is more involved &mdash; it involves a value of type `A` to make the `Maybe A`.
 In other words, `just` is a function from `A` to `Maybe A`, hence the signature.
 We can create instances of this type by using the constructors, just as with `Bool`:
 
@@ -221,7 +221,7 @@ Just as providing one parameter to a function in a functional language produces 
 
 Now read there is a single constructor, called `refl`.
 The _type_ of `refl` is `x ≡ x`.
-This means that in order to create an instance of this type, the type checker **must** prove that the value on the left-hand side of the `≡` is the same as the value on the right-hand side.
+This means that to create an instance of this type, the type checker **must** prove that the value on the left-hand side of the `≡` is the same as the value on the right-hand side.
 In return for proving this, we are given an instance, `refl`, which serves as _evidence_ that this is true.
 This evidence can then be used in other proofs without repeating the whole chain of reasoning that derives it.
 
@@ -234,7 +234,7 @@ By applying properties known to the type checker, it can be guided through the s
 
 ### A simple pair of examples
 
-Let&rsquo;s use our `Bool` type from earlier, and prove something evident from the definition of `_and_`.
+Let&rsquo;s use our `Bool` type from earlier and prove something evident from the definition of `_and_`.
 
 ```agda
 and-false-identity : ∀ {b : Bool} → (false and b) ≡ false
@@ -271,11 +271,11 @@ Much of the art of Agda involves applying properties in some order to show that 
 The advantage of this is formal verification.
 
 Lots of code is testable.
-Lots of tests check for a few simple value, or use a table of outcomes.
+Lots of tests check for a few simple values or use a table of outcomes.
 We can assert that `1 + 1 == 2` and `1 + 2 == 3` and `1 + 3 == 4` and so on and so forth.
 
 More sophisticated testing frameworks use something called _property-based testing_, which seeks to assert that some property holds for all inputs.
-However, most languages cannot exhaustively test all possiblities; it would simply take too long to be sensible.
+However, most languages cannot exhaustively test all possibilities; it would simply take too long to be sensible.
 Instead, they generate random examples to try and cover a wide variety of cases.
 
 Enter Agda.
@@ -285,12 +285,12 @@ If you can prove something holds for the base case, and it holds whenever you ta
 This concept, [induction][induction], is so powerful that it is used widely for proofs in mathematics.
 
 Agda, and languages like it, bring that technique to computer science and programming.
-Via the [Curry&ndash;Howard correspondence][Curry-Howard], mathmatial proofs and things shown by Agda&rsquo;s type system are isomorphic &mdash; they can be swapped between!
+Via the [Curry&ndash;Howard correspondence][Curry-Howard], mathematical proofs and things shown by Agda&rsquo;s type system are isomorphic &mdash; they can be swapped between!
 With this power, it is possible to prove that code will _always_ behave a certain way.
 No randomness, no human-generated examples, no untested edge cases.
 Just machine logic.
 
-Unfortunately, with great power come a a great many problems.
+Unfortunately, with great power come a great many problems.
 First and foremost, interacting with the outside world is hard!
 Without going into detail, some of the properties that Agda proves about programs makes them annoying to deal with input and output.
 Secondly, the performance is not currently very good.
@@ -304,7 +304,7 @@ This blog post serves as a primer to Agda materials that assume that you know wh
 If you&rsquo;re interested in more Agda writing, watch this space &mdash; I plan to write more soon.
 
 >>> Some types in this post have been simplified slightly from their definitions in the standard library to avoid having to discuss the [sort system][Sort System] and [universe levels][Universe Levels].
-If you are a set theorist who is worried about Russel&rsquo;s paradox, don&rsquo; lament &mdash; Agda has a solution!
+If you are a set theorist who is worried about Russel&rsquo;s paradox, don&rsquo;t lament &mdash; Agda has a solution!
 
 [Agda]: https://wiki.portal.chalmers.se/agda/pmwiki.php
 [Curry-Howard]: https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence
