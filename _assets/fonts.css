@@ -58,7 +58,7 @@
     font-weight: normal;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_code_regular.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_code_regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -67,7 +67,7 @@
     font-weight: normal;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_code_italic.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_code_italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -76,7 +76,7 @@
     font-weight: bold;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_code_bold.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_code_bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -85,7 +85,7 @@
     font-weight: bold;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_code_bold_italic.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_code_bold_italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -94,7 +94,7 @@
     font-weight: normal;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_regular.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -103,7 +103,7 @@
     font-weight: normal;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_italic.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -112,7 +112,7 @@
     font-weight: bold;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_bold.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -121,5 +121,5 @@
     font-weight: bold;
     font-stretch: normal;
     font-display: auto;
-    src: url('triplicate_a_bold_italic.woff2') format('woff2');
+    src: url('https://stuff.ibzan.co.uk/triplicate_a_bold_italic.woff2') format('woff2');
 }
