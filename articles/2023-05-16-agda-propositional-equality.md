@@ -166,20 +166,27 @@ data Maybe (A : Set) : Set where
 ```
 
 Our types just got more advanced!
-This one takes a parameter, `A`, which is another type, and produces a type.
+This one takes a parameter, `A`, which is another `Set`, and produces a `Set`.
+The type on the _left_-hand side of that colon indicates that it is an _input_ to this type; in a way, `Maybe` is a `Set&nbsp;→&nbsp;Set` function.
+Furthermore, `A` is the name bound to this parameter, which lets us use it later.
+
 The `nothing` constructor isn&rsquo;t too dissimilar from `true` or `false`; by this point, all the required information has been provided, so it is just a value.
 
-`just` is more involved &mdash; it involves a value of type `A` to make the `Maybe A`.
+`just` is more involved &mdash; it needs a value of type `A` to make a `Maybe A`.
 In other words, `just` is a function from `A` to `Maybe A`, hence the signature.
 We can create instances of this type by using the constructors, just as with `Bool`:
 
 ```agda
 nothing-Bool : Maybe Bool
 nothing-Bool = nothing
+```
 
+```agda
 just-true : Maybe Bool
 just-true = just true
+```
 
+```agda
 just-false : Maybe Bool
 just-false = just false
 ```
@@ -222,10 +229,12 @@ Just as providing one parameter to a function in a functional language produces 
 Now read there is a single constructor, called `refl`.
 The _type_ of `refl` is `x ≡ x`.
 This means that to create an instance of this type, the type checker **must** prove that the value on the left-hand side of the `≡` is the same as the value on the right-hand side.
-In return for proving this, we are given an instance, `refl`, which serves as _evidence_ that this is true.
-This evidence can then be used in other proofs without repeating the whole chain of reasoning that derives it.
+In return for proving this, we are given an instance, `refl`, which serves as _evidence_ that this is true &mdash; having a copy of `refl` somewhere in your inputs means you know two things must be the same.
+This evidence can then be used in other proofs without repeating the whole chain of reasoning that derives it, or knowing anything more about the values.
+I&rsquo;ll be exploring the concept of evidence further in later posts.
 
 Logically, it makes sense that the definition of equality is that any value is identical to itself.
+This property is called _reflexivity_, and is the reason that the constructor is called `refl`.
 If we have two values that look different at first, but can be shown to be equivalent, then `refl` can be used to construct equality.
 If they _can&rsquo;t_, then we can&rsquo;t use `refl` &mdash; so there is no evidence, and no proof!
 
