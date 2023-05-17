@@ -24,7 +24,7 @@ If you&rsquo;re looking for code, check my [GitHub][github].
 Want to get in touch?
 I&rsquo;d love to hear from you if you have any thoughts relating to the content here!
 The most reliable method is [email][email].
-I also have a <a rel="me" href="https://queer.party/@ibzan">Mastodon account</a>, and an [FA][furaffinity] page which I keep mostly up to date with art.
+I also have a <a class="external-link" rel="me" href="https://queer.party/@ibzan">Mastodon account</a>, and an [FA][furaffinity] page which I keep mostly up to date with art.
 I probably won&rsquo;t read any notes sent there in a timely fashion though.
 
 [Blaze Silverwolf caard]: https://itsdablazewolf.carrd.co/
