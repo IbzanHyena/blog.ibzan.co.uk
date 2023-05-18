@@ -584,7 +584,7 @@ The rule of thumb is that everything in J comes in groups of two or three.
 Modifiers are equivalent to higher-order functions in other languages.
 They are primitives that come in two forms: adverbs and conjunctions.
 
-Conjunctions take two inputs, such as a verb and a noun or two verbs and produce a new verb.
+Conjunctions take two inputs, such as a verb and a noun or two verbs and produce a new part of speech, like a verb.
 Useful conjunctions include:
 
 - the six composition conjunctions [`@`&nbsp;atop][nuvoc-atop], [`@:`&nbsp;at][nuvoc-at], [`&`&nbsp;compose][nuvoc-compose], [`&:`&nbsp;appose][nuvoc-appose], [`&.`&nbsp;under (dual)][nuvoc-under-dual], and [`&.:`&nbsp;under][nuvoc-under]
@@ -595,7 +595,7 @@ Useful conjunctions include:
 These conjunctions allow for combining verbs or modifying them in a variety of ways.
 However, I find that J&rsquo;s adverbs are especially expressive.
 
-Adverbs are what J calls modifiers that act on a single verb.
+Adverbs are what J calls modifiers that only take a single operand.
 While there aren&rsquo;t many of them, they are extremely useful.
 
 Perhaps the most common adverb is `~` as both [reflex][nuvoc-reflex] and [passive][nuvoc-passive].
