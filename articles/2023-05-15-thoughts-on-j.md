@@ -99,7 +99,6 @@ Some example verbs:
 
 ```
    NB. Addition
-   NB. Addition in action
    1 + 2
 %%% 1 + 2 %%%
    NB. Unary negation - monadic -
