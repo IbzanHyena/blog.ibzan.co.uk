@@ -1,5 +1,5 @@
 // title: Agda: What Even is Propositional Equality?
-// date: 2023-05-16
+// date: 2023-05-19
 // author: Ibzan
 
 # Agda: What Even is Propositional Equality?
