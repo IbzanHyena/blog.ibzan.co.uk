@@ -8,16 +8,19 @@ body {
     hyphens: auto;
 }
 
-code { font-feature-settings: "onum" off; hyphens: none; }
+code { 
+    font-family: triplicate_a_code,monospace;
+    font-feature-settings: "onum" off;
+    hyphens: none;
+}
+
 h1 { font-size: 24px; }
-h2 { font-size: 19px; }
-h3 { font-size: 18.5px; }
+h2 { font-size: 22px; }
+h3 { font-size: 20px; }
 
 @media only screen and (max-width: 768px) {
     body { padding: 0 5% 2em; }
 }
-
-code { font-family: monospace; }
 
 pre {
     white-space: pre-wrap;
@@ -40,14 +43,14 @@ p a.external-link {
     font-family: heliotrope_4_caps,serif;
 }
 
-a code { font-family: monospace; font-variant-caps: normal; }
+a code { font-family: triplicate_a_code,monospace; font-variant-caps: normal; }
 
 .centred-text { text-align: center; }
 .centred { margin-left: auto; margin-right: auto; }
 table.contents { width: 66.67%; }
 .contents th.title { text-align: left; }
 .contents .title { width: 80%; }
-.contents td.date { font-family: monospace; }
+.contents td.date { font-family: triplicate_a,monospace; }
 .contents .date { text-align: right; }
 blockquote.aside { padding-left: 0.5em; padding-top: 0.125em; padding-bottom: 0.125em; border-left: 0.125em solid; }
 img { max-width: 100%; max-height: 100%; }

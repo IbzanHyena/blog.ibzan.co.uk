@@ -99,7 +99,6 @@ Some example verbs:
 
 ```
    NB. Addition
-   NB. Addition in action
    1 + 2
 %%% 1 + 2 %%%
    NB. Unary negation - monadic -
@@ -141,6 +140,72 @@ I won&rsquo;t be covering control words here, since they aren&rsquo;t relevant t
 
 Not usually classed as a part of speech, J refers to quotes, brackets (parentheses), and comment markers as **punctuation**.
 Quotes demarcate strings, brackets control execution order, and comment markers indicate the start of a comment.
+
+### Rank
+
+Rank is an important concept in J &mdash; by which I mean both noun rank and verb rank.
+The rank of a noun and a verb operating on it is responsible for lots of behaviour, similar to nested loops in imperative languages.
+
+To understand _noun_ rank better, it may be useful to build up higher rank nouns inductively.
+A rank 0 noun is an atom &mdash; a single value.
+
+```j
+   1
+%%% 1 %%%
+```
+
+We can see the rank by using the [`$`&nbsp;shape&nbsp;of][nuvoc-shape-of] verb on a noun.
+
+```j
+   $ 1
+%%% $ 1 %%%
+```
+
+The empty return value shows that this is an atom.
+In fact, the return value of shape of is _always_ a list, even if it is empty or contains a single item.
+A list is the name for a rank-1 array in J, and is built out of a sequence of rank-0 items; atoms.
+An example list would be:
+
+```j
+   1 2 3 4 5
+%%% 1 2 3 4 5 %%%
+   $ 1 2 3 4 5
+%%% $ 1 2 3 4 5 %%%
+```
+
+The shape of this list is `5` &mdash; it contains five items in a single axis.
+
+Just as a list is a sequence of atoms, a _table_ (rank 2 array) is a sequence of lists of the same length.
+We can build a table with verbs like [`i.`&nbsp;integers][nuvoc-integers], dyadic [`$`&nbsp;shape][nuvoc-shape], or [`,:`&nbsp;laminate][nuvoc-laminate].
+
+```j
+   NB. i. integers produces an array with the specified shape
+   i. 5
+%%% i. 5 %%%
+   $ i. 5
+%%% $ i. 5 %%%
+   NB. A 2 by 3 table
+   i. 2 3
+%%% i. 2 3 %%%
+   $ i. 2 3
+%%% $ i. 2 3 %%%
+   
+   NB. $ takes an existing array and reshapes it
+   2 3 $ 10 20 30 40 50 60
+%%% 2 3 $ 10 20 30 40 50 60 %%%
+   NB. See here how the resulting shape is specified on the left
+   
+   NB. ,: combines two arrays to make two rows of a table
+   100 200 300 ,: 400 500 600
+%%% 100 200 300 ,: 400 500 600 %%%
+```
+
+Theoretically, there is no upper bound to the rank of a noun.
+We can make a rank 3 noun, sometimes called a _brick_, from a collection of tables all with the same shape, and a rank 4 noun from those, and so on and so forth.
+More realistically, the increasing number of dimensions means larger and larger arrays consume more and more memory.
+
+Verb rank controls how a verb dices up an array to broadcast operations across it.
+I cover this in more detail in [a later section](#leading-axis-model-and-rank).
 
 ## The things I like
 
@@ -193,7 +258,7 @@ On the other hand,
 ``]`(97&([ + 26 | 13 + -~))`(65&([ + 26 | 13 + -~))@.((([ ([ >: [: a.&i. ]) [: {. ]) *. [ ([ <: [: a.&i. ]) [: {: ])&'az' + 2 * (([ ([ >: [: a.&i. ]) [: {. ]) *. [ ([ <: [: a.&i. ]) [: {: ])&'AZ')&.:(a.&i.)``  
 is just too long.  
 A later version of this was shorter:  
-``]`(97&([ + 26 | 13 + -~))`(65&([ + 26 | 13 + -~))@.(64 91 96 123 >.@:-:@:I. a. i. ])&.:(a.&i.)``  
+``]`(65&([ + 26 | 13 + -~))`(97&([ + 26 | 13 + -~))@.(64 91 96 123 >.@:-:@:I. a. i. ])&.:(a.&i.)``  
 but it still too long to easily parse.
 
 When separated out into parts that each perform a specific role, it becomes more manageable.
@@ -325,7 +390,7 @@ The inverse is also worked out for verbs that are made out of existing verbs wit
 >>> Strictly speaking, J calls this operation the _obverse_, not the inverse.
 The difference is that the obverse can be manually assigned to be something else (but it is the inverse by default for supported primitives).
 
-NuVoc links: [`+`&nbsp;plus][nuvoc-plus], [`/`&nbsp;insert][nuvoc-insert], [`\`&nbsp;prefix][nuvoc-prefix]. [`-`&nbsp;minus][nuvoc-minus], [`b.`&nbsp;verb info][nuvoc-verb-info] [`|.!.n`&nbsp;shift][nuvoc-shift], [`:.`&nbsp;assign adverse][nuvoc-adverse].
+NuVoc links: [`+`&nbsp;plus][nuvoc-plus], [`/`&nbsp;insert][nuvoc-insert], [`\`&nbsp;prefix][nuvoc-prefix]. [`-`&nbsp;minus][nuvoc-minus], [`b.`&nbsp;verb info][nuvoc-verb-info] [`|.!.n`&nbsp;shift][nuvoc-shift], [`:.`&nbsp;assign obverse][nuvoc-obverse].
 
 `^:` can be used with [`_`&nbsp;infinity][nuvoc-infinity] to repeat a verb until it converges.
 Extremely useful when you want to find an end state of a convergent operation.
@@ -519,7 +584,7 @@ The rule of thumb is that everything in J comes in groups of two or three.
 Modifiers are equivalent to higher-order functions in other languages.
 They are primitives that come in two forms: adverbs and conjunctions.
 
-Conjunctions take two inputs, such as a verb and a noun or two verbs and produce a new verb.
+Conjunctions take two inputs, such as a verb and a noun or two verbs and produce a new part of speech, like a verb.
 Useful conjunctions include:
 
 - the six composition conjunctions [`@`&nbsp;atop][nuvoc-atop], [`@:`&nbsp;at][nuvoc-at], [`&`&nbsp;compose][nuvoc-compose], [`&:`&nbsp;appose][nuvoc-appose], [`&.`&nbsp;under (dual)][nuvoc-under-dual], and [`&.:`&nbsp;under][nuvoc-under]
@@ -530,7 +595,7 @@ Useful conjunctions include:
 These conjunctions allow for combining verbs or modifying them in a variety of ways.
 However, I find that J&rsquo;s adverbs are especially expressive.
 
-Adverbs are what J calls modifiers that act on a single verb.
+Adverbs are what J calls modifiers that only take a single operand.
 While there aren&rsquo;t many of them, they are extremely useful.
 
 Perhaps the most common adverb is `~` as both [reflex][nuvoc-reflex] and [passive][nuvoc-passive].
@@ -687,7 +752,7 @@ For an array of boxed strings, each atom is a boxed string.
 A more realistic use case would be using [`rxcut`][nuvoc-rxcut] to split some input text into matching and non-matching boxes.
 A cyclic gerund can then apply one verb to each match, and a different verb to the non-matches _without_ being restricted to solely textual manipulations as using [`rxapply`][nuvoc-rxapply] would be.
 
-### Leading axis model
+### Leading axis model and rank
 
 The leading axis model (also called leading axis theory) is made of two main parts.
 
@@ -724,6 +789,53 @@ This leads to many array operations being intuitive in J (at least in my experie
 ```
 
 NuVoc links: [`+`&nbsp;plus][nuvoc-plus], [`/`&nbsp;insert][nuvoc-insert].
+
+
+Furthermore, J&rsquo;s ability to broadcast arrays is underpinned by a concept called **agreement**; two arrays agree if they share a prefix of their shapes (for two shapes `x` and `y`, sharing a prefix means that `x` begins with `y`, or `y` begins with `x`).
+More complex uses of the rank operator can control how the verb will split up arrays to determine agreement.
+The rank operator has a few different ways of being used, but for now I will consider the most basic cases, where there is a verb on the left and a noun on the right.
+The noun given controls the _verb rank_ of the verb it modifies, producing a new verb with the specied rank.
+
+That was a lot of usage of the word &ldquo;rank&rdquo;, so let&rsquo;s consider some examples.
+
+```j
+   NB. An array of shape 2 3
+   i. 2 3
+%%% i. 2 3 %%%
+   NB. An arrray of shape 2
+   10 20
+%%% 10 20 %%%
+   NB. 2 is a prefix of 2 3, so these arrays agree, and can be broadcast
+   10 20 + i. 2 3
+%%% 10 20 + i. 2 3 %%%
+   
+   NB. What if we had an array of shape 3?
+   10 20 30
+%%% 10 20 30 %%%
+   NB. Now this does not agree with i. 2 3
+   NB. However, we can see a way it could 
+   NB. if we added it to each rank-1 member of i. 2 3 instead instead of as a whole
+   NB. This is what the rank modifier solves
+   10 20 30 +"_ 1 i. 2 3
+%%% 10 20 30 +"_ 1 i. 2 3 %%%
+   NB. The left rank here is infinity - take the array as a whole
+   NB. The right rank here is 1 - chop the array into lists first
+   
+   NB. This concept generalises to arbitrary ranks, too
+   NB. A table
+   100 * i. 2 2
+%%% 100 * i. 2 2 %%%
+   NB. A brick
+   i. 3 2 2
+%%% i. 3 2 2 %%%
+   NB. Add all of x to tables of y
+   (100 * i. 2 2) +"_ 2 i. 3 2 2
+%%% (100 * i. 2 2) +"_ 2 i. 3 2 2 %%%
+```
+
+NuVoc links: [`i.`&nbsp;integers][nuvoc-integers], [`+`&nbsp;add][nuvoc-add], [`"`&nbsp;rank][nuvoc-rank].
+
+Rank can be a tricky concept to understand, but it is an extremely useful one when you do &mdash; so much of J revolves around it.
 
 ### Mathematical primitives and verbs
 
@@ -1089,7 +1201,7 @@ In J, verbs have a rank.
 This fact is so important that every page on NuVoc includes &ldquo;[WHY IS THIS IMPORTANT?][nuvoc-rank-info]&rdquo; which explains why the rank of a verb matters.
 The rank of a verb determines the maximum rank that a verb can operate on.
 A higher rank input array is subdivided into arrays of a rank the verb can handle.
-As covered in the [leading axis model](#leading-axis-model) section, this has advantages.
+As covered in the [leading axis model](#leading-axis-model-and-rank) section, this has advantages.
 
 For example, the verb [`+`&nbsp;plus][nuvoc-plus] has rank `0 0`.
 This means that both the `x` and `y` input arrays are broken down into atoms, added individually, and then collected to the original shape.
@@ -1336,6 +1448,7 @@ Ultimately, J was a language that was 100% worth me learning, and I encourage an
 [NumPy]: https://numpy.org/
 [nuvoc]: https://code2.jsoftware.com/wiki/NuVoc
 [nuvoc-ace]: https://code2.jsoftware.com/wiki/Vocabulary/aco
+[nuvoc-add]: https://code2.jsoftware.com/wiki/plus
 [nuvoc-adverse]: https://code2.jsoftware.com/wiki/Vocabulary/codot
 [nuvoc-agenda]: https://code2.jsoftware.com/wiki/Vocabulary/atdot
 [nuvoc-alphabet]: https://code2.jsoftware.com/wiki/Vocabulary/adot
@@ -1379,6 +1492,7 @@ Ultimately, J was a language that was 100% worth me learning, and I encourage an
 [nuvoc-is-global]: https://code2.jsoftware.com/wiki/Vocabulary/eqco
 [nuvoc-is-local]: https://code2.jsoftware.com/wiki/Vocabulary/eqdot
 [nuvoc-key]: https://code2.jsoftware.com/wiki/Vocabulary/slashdot#dyadic
+[nuvoc-laminate]: https://code2.jsoftware.com/wiki/Vocabulary/commaco#dyadic
 [nuvoc-left]: https://code2.jsoftware.com/wiki/Vocabulary/squarelf#dyadic
 [nuvoc-lt]: https://code2.jsoftware.com/wiki/Vocabulary/lt#dyadic
 [nuvoc-max]: https://code2.jsoftware.com/wiki/Vocabulary/gtdot#dyadic
@@ -1410,6 +1524,7 @@ Ultimately, J was a language that was 100% worth me learning, and I encourage an
 [nuvoc-scs]: https://code.jsoftware.com/wiki/Vocabulary/SpecialCombinations
 [nuvoc-seq-mac]: https://code2.jsoftware.com/wiki/Vocabulary/semico#dyadic
 [nuvoc-shape]: https://code2.jsoftware.com/wiki/Vocabulary/dollar#dyadic
+[nuvoc-shape-of]: https://code2.jsoftware.com/wiki/Vocabulary/dollar
 [nuvoc-shift]: https://code2.jsoftware.com/wiki/Vocabulary/bardot#monadicfit
 [nuvoc-sqrt]: https://code2.jsoftware.com/wiki/Vocabulary/percentco
 [nuvoc-square]: https://code2.jsoftware.com/wiki/Vocabulary/starco
