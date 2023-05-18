@@ -258,7 +258,7 @@ On the other hand,
 ``]`(97&([ + 26 | 13 + -~))`(65&([ + 26 | 13 + -~))@.((([ ([ >: [: a.&i. ]) [: {. ]) *. [ ([ <: [: a.&i. ]) [: {: ])&'az' + 2 * (([ ([ >: [: a.&i. ]) [: {. ]) *. [ ([ <: [: a.&i. ]) [: {: ])&'AZ')&.:(a.&i.)``  
 is just too long.  
 A later version of this was shorter:  
-``]`(97&([ + 26 | 13 + -~))`(65&([ + 26 | 13 + -~))@.(64 91 96 123 >.@:-:@:I. a. i. ])&.:(a.&i.)``  
+``]`(65&([ + 26 | 13 + -~))`(97&([ + 26 | 13 + -~))@.(64 91 96 123 >.@:-:@:I. a. i. ])&.:(a.&i.)``  
 but it still too long to easily parse.
 
 When separated out into parts that each perform a specific role, it becomes more manageable.
