@@ -820,7 +820,7 @@ That was a lot of usage of the word &ldquo;rank&rdquo;, so let&rsquo;s consider 
 %%% 10 20 30 +"_ 1 i. 2 3 %%%
    NB. The left rank here is infinity - take the array as a whole
    NB. The right rank here is 1 - chop the array into lists first
-
+   
    NB. This concept generalises to arbitrary ranks, too
    NB. A table
    100 * i. 2 2
