@@ -71,7 +71,6 @@ Within functional programming, there are also two main styles &mdash; Haskell-st
 
 ```
 add :: int -> int -> int
-add a b = a + b
 ```
 
 ```
@@ -82,10 +81,11 @@ Again, let&rsquo;s compare these.
 
 - In Haskell-style, the type signature and the names of the parameters are _separate_
 - ML-style is very similar to Pascal-style
-- These signatures need to have an accompanying body
 
-Why is that last point relevant here?
-Simply put, it&rsquo;s because the functions both also have types, similar to the procedural languages!
+The ML-style function requires a body because the signature is inseparable from it.
+By comparison, the Haskell-style one does not; we can just declare a function of some type.
+
+As well as signatures, functions in functional languages also have types &mdash; and this is far more important in these languages, where higher-order functions are extremely common.
 Both of them use the same syntax, derived from mathematics:
 
 ```
@@ -94,6 +94,7 @@ int -> int -> int
 
 This is exactly what is on the right-hand side of the `::` in Haskell-style syntax.
 In fact, `::` in Haskell descendants just specifies the type of the term to its left.
+`add&nbsp;::&nbsp;int&nbsp;->&nbsp;int&nbsp;->&nbsp;int` is just declaring a value named `add` with the given type, which happens to be a function.
 The ML-based languages use this too, but do not display it as explicitly in every function definition.
 
 There&rsquo;s a key difference with functions in functional languages compared to procedural ones, and it&rsquo;s hinted to by these arrows.
@@ -226,6 +227,10 @@ Given these two inputs, we are given the signature for the type itself, which is
 `A → Set` means that we must be given a _second_ value of type `A` to complete the construction of this type.
 Just as providing one parameter to a function in a functional language produces a _new_ function that takes the rest of the parameters, giving a type `A` implicitly and a value `x` explicitly gives us a function to construct the type with.
 
+In fact, the whole type can be thought of like a curried function.
+The first parameter is the implicit `Set` which is being tested, followed by the left-hand value.
+The last parameter is provided on the right-hand side of the `≡`.
+
 Now read there is a single constructor, called `refl`.
 The _type_ of `refl` is `x ≡ x`.
 This means that to create an instance of this type, the type checker **must** prove that the value on the left-hand side of the `≡` is the same as the value on the right-hand side.
@@ -286,23 +291,36 @@ We can assert that `1 + 1 == 2` and `1 + 2 == 3` and `1 + 3 == 4` and so on and 
 More sophisticated testing frameworks use something called _property-based testing_, which seeks to assert that some property holds for all inputs.
 However, most languages cannot exhaustively test all possibilities; it would simply take too long to be sensible.
 Instead, they generate random examples to try and cover a wide variety of cases.
+While better than hand-picked inputs, it would be better if any problems could be systematically ruled out, the same way compilers verify the types in statically-typed programs.
 
 Enter Agda.
 
-Types in Agda are almost always built inductively &mdash; there is a base case, and a step.
+Agda allows for this to happen.
+Checking that properties hold _is_ type checking, and uses the same machinery.
+Eliminating edge cases can be done by defining invariants and _proving_ that they hold under all cases.
+
+Types in Agda are almost always built inductively &mdash; there is a base case, and a step from one case to the next.
 If you can prove something holds for the base case, and it holds whenever you take that step, you have proved it holds for all possible values!
 This concept, [induction][induction], is so powerful that it is used widely for proofs in mathematics.
+I&rsquo;ll be covering this in a later article, too.
 
 Agda, and languages like it, bring that technique to computer science and programming.
-Via the [Curry&ndash;Howard correspondence][Curry-Howard], mathematical proofs and things shown by Agda&rsquo;s type system are isomorphic &mdash; they can be swapped between!
+Via the [Curry&ndash;Howard correspondence][Curry-Howard], mathematical proofs and things shown by Agda&rsquo;s type system are isomorphic &mdash; one can be mapped to the other, and vice versa!
 With this power, it is possible to prove that code will _always_ behave a certain way.
 No randomness, no human-generated examples, no untested edge cases.
-Just machine logic.
+Just machine-verifiable properties.
 
 Unfortunately, with great power come a great many problems.
+
 First and foremost, interacting with the outside world is hard!
-Without going into detail, some of the properties that Agda proves about programs makes them annoying to deal with input and output.
+Without going into huge detail, Agda asserts that programs must be _total_ &mdash; they must terminate.
+Furthemore, reading files could theoretically yield an unbounded quantity of data; this is dealt with by special data types that allow for termination checking.
+These added complexities make it quite trickly to write an &ldquo;interactive&rdquo; (the Agda name for something that deals with the outside world) program.
+There are some resources for this class of problem, but it is not widespread among Agda programmers.
+I have been advised to try [Idris][Idris] for a similar language that is better oriented for programming in.
+
 Secondly, the performance is not currently very good.
+The two current backends both have their limitations that hold it back.
 This is an area of active work, though, so there may be interesting developments soon!
 
 ## Conclusion
@@ -313,10 +331,12 @@ This blog post serves as a primer to Agda materials that assume that you know wh
 If you&rsquo;re interested in more Agda writing, watch this space &mdash; I plan to write more soon.
 
 >>> Some types in this post have been simplified slightly from their definitions in the standard library to avoid having to discuss the [sort system][Sort System] and [universe levels][Universe Levels].
-If you are a set theorist who is worried about Russel&rsquo;s paradox, don&rsquo;t lament &mdash; Agda has a solution!
+If you are a set theorist who is worried about Russel&rsquo;s paradox, don&rsquo;t lament &mdash; Agda has a solution!  
+Furthermore, the type of equality presented here is known academically as Martin-L&ouml;f Identity.
 
 [Agda]: https://wiki.portal.chalmers.se/agda/pmwiki.php
 [Curry-Howard]: https://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence
+[Idris]: https://www.idris-lang.org/
 [induction]: https://en.wikipedia.org/wiki/Mathematical_induction
 [Sort System]: https://agda.readthedocs.io/en/latest/language/sort-system.html
 [Universe Levels]: https://agda.readthedocs.io/en/latest/language/universe-levels.html
