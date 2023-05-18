@@ -1449,7 +1449,6 @@ Ultimately, J was a language that was 100% worth me learning, and I encourage an
 [nuvoc]: https://code2.jsoftware.com/wiki/NuVoc
 [nuvoc-ace]: https://code2.jsoftware.com/wiki/Vocabulary/aco
 [nuvoc-add]: https://code2.jsoftware.com/wiki/plus
-[nuvoc-adverse]: https://code2.jsoftware.com/wiki/Vocabulary/codot
 [nuvoc-agenda]: https://code2.jsoftware.com/wiki/Vocabulary/atdot
 [nuvoc-alphabet]: https://code2.jsoftware.com/wiki/Vocabulary/adot
 [nuvoc-amend]: https://code2.jsoftware.com/wiki/Vocabulary/curlyrt#dyadic
@@ -1500,6 +1499,7 @@ Ultimately, J was a language that was 100% worth me learning, and I encourage an
 [nuvoc-minus]: https://code2.jsoftware.com/wiki/Vocabulary/minus#dyadic
 [nuvoc-modifier-trains]: https://code2.jsoftware.com/wiki/Vocabulary/fork#invisiblemodifiers
 [nuvoc-oblique]: https://code2.jsoftware.com/wiki/Vocabulary/slashdot
+[nuvoc-obverse]: https://code2.jsoftware.com/wiki/Vocabulary/codot
 [nuvoc-open]: https://code2.jsoftware.com/wiki/Vocabulary/gt
 [nuvoc-outfix]: https://code2.jsoftware.com/wiki/Vocabulary/bslashdot#dyadic
 [nuvoc-passive]: https://code2.jsoftware.com/wiki/Vocabulary/tilde#dyadic
