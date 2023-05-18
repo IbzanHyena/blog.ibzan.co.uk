@@ -194,7 +194,7 @@ We can build a table with verbs like [`i.`&nbsp;integers][nuvoc-integers], dyadi
    2 3 $ 10 20 30 40 50 60
 %%% 2 3 $ 10 20 30 40 50 60 %%%
    NB. See here how the resulting shape is specified on the left
-
+   
    NB. ,: combines two arrays to make two rows of a table
    100 200 300 ,: 400 500 600
 %%% 100 200 300 ,: 400 500 600 %%%
