@@ -98,6 +98,7 @@ div.header-img {
 }
 
 svg { fill: currentColor; stroke: currentColor; }
+svg.code-diagram { font-family: 'Triplicate A Code',monospace; }
 
 /* Print layout stuff */
 @media print { 
