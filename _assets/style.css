@@ -76,7 +76,7 @@ div.header-img {
     }
     .header::marker { color: #ddd; }
     p a, .contents a { background: #333 }
-    p a:hover, .contents a { background: #444 }
+    p a:hover, .contents a:hover { background: #444 }
     blockquote.aside { border-left-color: #fbfbfe; }
     ::-moz-selection { background: #5c5baa; }
     ::selection { background: #5c5baa; }
@@ -91,7 +91,7 @@ div.header-img {
     }
     .header::marker { color: #aaa; }
     p a, .contents a { background: #e9e9e9 }
-    p a:hover, .contents a { background: #ccc }
+    p a:hover, .contents a:hover { background: #ccc }
     blockquote.aside { border-left-color: #15141a; }
     ::-moz-selection { background: #ff0; }
     ::selection { background: #ff0; }
