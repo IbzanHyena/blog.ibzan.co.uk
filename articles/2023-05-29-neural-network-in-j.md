@@ -169,7 +169,7 @@ We have categorical data currently:
 
 ```j
    ~. y
-Iris-setosa    
+Iris-setosa
 Iris-versicolor
 Iris-virginica 
 ```
