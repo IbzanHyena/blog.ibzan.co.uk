@@ -6,6 +6,9 @@ body {
     font-feature-settings: "calt", "kern", "liga", "onum", "zero";
     font-size: 18px;
     hyphens: auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80ch;
 }
 
 code { 
