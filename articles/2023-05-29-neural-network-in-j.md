@@ -353,7 +353,7 @@ Here&rsquo;s a bunch of code I wrote to do just that.
      accuracies =. y (accuracy argmax"1@:pred)"_ 1 x
      }. x {~ argmax accuracies
    }}
-
+   
    mutate =: {{ (+ randMatrix@:$)&amp;.&gt; y }}
 ```
 
