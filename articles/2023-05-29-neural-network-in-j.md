@@ -140,6 +140,16 @@ Let&rsquo;s calculate the means and standard deviations to show this:
 Don&rsquo;t worry too much about the J.  
 Mean on top, standard deviation below.
 
+!!! Open this if you _are_ worried about the J
+Calculating the mean is a common adage in J &mdash; &ldquo;sum over count,&rdquo; or just `+/ % #`, as above.  
+The standard deviation is then found by subtracting the mean from the initial values and calculating the square root of the mean of the squared values.
+Square and square root are inverses &mdash; so we can use [`&amp;.:`&nbsp;under][nuvoc-under] to perform those operations.
+The verb we execute under squaring is the mean, and it&rsquo;s exactly the same as before.  
+There is also an appearance from [`"`&nbsp;rank][nuvoc-rank] here, because we are calculating the mean for all of the columns at once.
+It is necessary to use rank so that the shapes of the arrays being subtracted work.  
+More specifically, `$ X` is `150 4`, and `$ means` is `4`.
+Without using rank, J would try to broadcast over the first axis &mdash; obviously that doesn&rsquo;t work here, as 150 is not equal to 4.
+
 In a neural network, uneven data like this is not desirable, because it means that variations in one input value can have much larger impacts than variations in others.
 To solve this, data is usually normalised.
 There are three typical normalisation strategies: min-max, median, and z-score.
@@ -233,12 +243,21 @@ So, we can represent the neural network as a collection of matrices &mdash; each
 Let&rsquo;s write some code to generate that!
 
 ```j
-   randMatrix =: <: @: +: @: (?@:$) &amp; 0
+   randMatrix =: 1 -~ 2 * (?@:$) &amp; 0
    randLayers =: 2 &lt;@randMatrix\ ]
 ```
 
 Here, `randMatrix` generates an array of the specified size full of random numbers from &minus;1 to 1.
 `randLayers` then takes a list of layer sizes and generates appropriately-sized matrices to transform between them.
+
+!!! More detailed explanation
+[`$`&nbsp;shape][nuvoc-shape] creates an array of the specified shape with values from another array (or an atom).
+Here, the value is zero everywhere.
+Then, [`?`&nbsp;roll][nuvoc-roll] turns these zeroes into random numbers between zero and one.
+The rest of `randMatrix` is responsible for the rescaling.
+It doubles the array and then subtracts one from it.  
+In `randLayers`, [`\`&nbsp;infix][nuvoc-infix] generates an appropriate matrix for each adjacent pair of layers.
+Additionally, it has to box the matrices via [`&lt;`&nbsp;box][nuvoc-box] to avoid adding padding to them.
 
 To run data through this network, we can simply prepend our `X` values to the array and then apply matrix multiplication and the activation function until we have finished the array.
 A slight quirk of J here is that we have to reverse the array of matrices after prepending `X`, since J evaluates things right-to-left.
@@ -254,6 +273,16 @@ In `combineLayers` and `predict`, `u` is the activation function.
 `predict` does the aforementioned reversal and some unboxing, since our matrices have to be boxed for flatness reasons.
 
 `prepare` is a very little helper that will add the initial `X` values to a network, so it can be given to `predict`.
+
+!!! More details about the above J
+[`.`&nbsp;matrix&nbsp;product][nuvoc-matrix-product] is a conjunction that takes a pair of combining functions to make matrix products.  
+As a motivating example, we can consider the normal matrix product, written in J as `+/ .*`
+The right-hand verb is how the individual elements from rows and columns are combined.
+In matrix multiplication this is multiplication &mdash; so `*`.
+The left-hand verb is then how these results are combined into the elements of the new matrix; `+/` is sum, as typical.  
+In our matrix product, we want to take the weighted mean followed by the activation function for our left-hand verb.
+Hopefully, `u@:(+/%#)` makes sense for this.  
+`predict` then simply unboxes its operands and uses [`/`&nbsp;insert][nuvoc-insert] to do this across all of the layers.
 
 What should we use as the activation function?
 
@@ -571,10 +600,17 @@ I highly recommend you trying it yourself, whether using this kind of approach o
 [logistic]: https://en.wikipedia.org/wiki/Logistic_function
 [mse]: https://en.wikipedia.org/wiki/Mean_squared_error
 [normal]: https://en.wikipedia.org/wiki/Normal_distribution
+[nuvoc-box]: https://code2.jsoftware.com/wiki/Vocabulary/lt
 [nuvoc-curtail]: https://code2.jsoftware.com/wiki/Vocabulary/curlyrtco
+[nuvoc-infix]: https://code2.jsoftware.com/wiki/Vocabulary/bslash#dyadic
+[nuvoc-insert]: https://code2.jsoftware.com/wiki/Vocabulary/slash
 [nuvoc-open]: https://code2.jsoftware.com/wiki/Vocabulary/gt
+[nuvoc-matrix-product]: https://code2.jsoftware.com/wiki/Vocabulary/dot#dyadic
 [nuvoc-power-of-verb]: https://code2.jsoftware.com/wiki/Vocabulary/hatco
+[nuvoc-shape]: https://code2.jsoftware.com/wiki/Vocabulary/dollar#dyadic
 [nuvoc-rank]: https://code2.jsoftware.com/wiki/Vocabulary/quote
+[nuvoc-roll]: https://code2.jsoftware.com/wiki/Vocabulary/query
 [nuvoc-tail]: https://code2.jsoftware.com/wiki/Vocabulary/curlylfco
+[nuvoc-under]: https://code2.jsoftware.com/wiki/Vocabulary/ampdotco
 [perceptron]: https://en.wikipedia.org/wiki/Perceptron
 [recurrent]: https://en.wikipedia.org/wiki/Recurrent_neural_network
