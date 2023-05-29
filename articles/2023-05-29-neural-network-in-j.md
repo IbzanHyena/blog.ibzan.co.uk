@@ -444,6 +444,76 @@ That is because we generated 1000 neural networks rather than just one, and so b
 
 The output of this is our next generation &mdash; ready for `evolveStep` to be run on it again.
 
+As a simple diagram, `evolveStep` performs the following operation:
+
+<svg>
+  <!-- first column -->
+  <!-- top -->
+  <circle cx="15%" cy="11%" r="2%" />
+  <circle cx="15%" cy="20%" r="2%" />
+  <circle cx="20%" cy="7%" r="2%" />
+  <circle cx="20%" cy="15%" r="2%" />
+  <circle cx="20%" cy="23%" r="2%" />
+  <circle cx="25%" cy="15%" r="2%" />
+  <rect x="12%" y="3%" width="16%" height="25%" fill="none"/>
+  <!-- middle -->
+  <circle cx="15%" cy="46%" r="2%" />
+  <circle cx="15%" cy="55%" r="2%" />
+  <circle cx="20%" cy="42%" r="2%" />
+  <circle cx="20%" cy="50%" r="2%" />
+  <circle cx="20%" cy="58%" r="2%" />
+  <circle cx="25%" cy="50%" r="2%" />
+  <rect x="12%" y="38%" width="16%" height="25%" fill="none"/>
+  <!-- bottom -->
+  <circle cx="15%" cy="81%" r="2%" />
+  <circle cx="15%" cy="90%" r="2%" />
+  <circle cx="20%" cy="77%" r="2%" />
+  <circle cx="20%" cy="85%" r="2%" />
+  <circle cx="20%" cy="93%" r="2%" />
+  <circle cx="25%" cy="85%" r="2%" />
+  <rect x="12%" y="73%" width="16%" height="25%" fill="none"/>
+  <!-- middle columns -->
+  <line x1="29%" x2="32%" y1="15%" y2="49%"/>
+  <line x1="29%" x2="32%" y1="50%" y2="50%"/>
+  <line x1="29%" x2="32%" y1="85%" y2="51%"/>
+  <text y="50%" text-anchor="middle" font-size="small">
+    <tspan x="40%" dy="-0.5em">Select</tspan>
+    <tspan x="40%" dy="1em">best</tspan>
+  </text>
+  <line x1="47%" x2="52%" y1="50%" y2="50%"/>
+  <text x="60%" y="50%" text-anchor="middle" font-size="small" dominant-baseline="central">
+    Mutate
+  </text>
+  <line x1="68%" x2="71%" y1="49%" y2="15%" />
+  <line x1="68%" x2="71%" y1="50%" y2="50%" />
+  <line x1="68%" x2="71%" y1="51%" y2="85%" />
+  <!-- right column -->
+  <!-- top -->
+  <circle cx="75%" cy="11%" r="2%" />
+  <circle cx="75%" cy="20%" r="2%" />
+  <circle cx="80%" cy="7%" r="2%" />
+  <circle cx="80%" cy="15%" r="2%" />
+  <circle cx="80%" cy="23%" r="2%" />
+  <circle cx="85%" cy="15%" r="2%" />
+  <rect x="72%" y="3%" width="16%" height="25%" fill="none"/>
+  <!-- middle -->
+  <circle cx="75%" cy="46%" r="2%" />
+  <circle cx="75%" cy="55%" r="2%" />
+  <circle cx="80%" cy="42%" r="2%" />
+  <circle cx="80%" cy="50%" r="2%" />
+  <circle cx="80%" cy="58%" r="2%" />
+  <circle cx="85%" cy="50%" r="2%" />
+  <rect x="72%" y="38%" width="16%" height="25%" fill="none"/>
+  <!-- bottom -->
+  <circle cx="75%" cy="81%" r="2%" />
+  <circle cx="75%" cy="90%" r="2%" />
+  <circle cx="80%" cy="77%" r="2%" />
+  <circle cx="80%" cy="85%" r="2%" />
+  <circle cx="80%" cy="93%" r="2%" />
+  <circle cx="85%" cy="85%" r="2%" />
+  <rect x="72%" y="73%" width="16%" height="25%" fill="none"/>
+</svg>
+
 ### Repeat this process until the result is satisfactory
 
 We just need to repeat the above process many times!
