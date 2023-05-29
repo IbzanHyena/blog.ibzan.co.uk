@@ -6,7 +6,7 @@
 
 I have been thinking a lot about neural networks recently, so I decided why not make my own in J?
 The vast majority of neural network &mdash; and machine learning in general &mdash; code that I interact with is written in Python (by which I mean C or C++ with a Python frontend).
-This hides a lot of the implementational complexity to allow the end user to focus on the higher-level aspects of training one.
+This hides a lot of the complexity of the implementation to allow the end user to focus on the higher-level aspects of training one.
 
 However, theoretically, a simple neural network shouldn&rsquo;t be too hard to implement manually.
 The majority of the operations are effectively array and matrix operations &mdash; a task J should be well-suited for.
