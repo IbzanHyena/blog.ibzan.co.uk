@@ -87,7 +87,7 @@ Typical loss functions include [Euclidean distance][distance], [cross-entropy][c
 
 I am not clever enough to want to do that quickly, however.
 Instead, I opted for a different approach: taking the best-performing model and varying its weights _randomly_ and seeing if it gets any better or not.
-Although inefficient, this method still works reasonabl well.
+Although inefficient, this method still works reasonably well.
 
 ## Writing some code in J
 
