@@ -73,12 +73,12 @@ While it has its flaws, it is easy to understand for a basic project like this.
 **Accuracy** is just the number of correct classifications divided by the total number made.
 Two out of four correct?
 0.5 accuracy.
-Three our of five?
+Three out of five?
 0.6.
 
 To make the network learn, now we just need to tweak its weights and see if our evaluation metric improves or not.
 By doing this cleverly, networks can learn very quickly!
-A widely-used method for doing this is called [backpropogation][backpropogation].
+A widely-used method for doing this is called [backpropagation][backpropagation].
 
 >>> Normally, for training, something called a **loss function** is used instead.
 In neural network training, this typically takes the form of a function that provides the difference between the _actual_ network outputs and the _expected_ outputs.
@@ -103,8 +103,8 @@ It helps to divide the problem into a few steps:
 ### Read in input data
 
 Our input data is the widely-used [iris dataset][iris].
-The dataset contains five columns: petal and sepal length and width, and iris species.
-There are three species and one hundred and fifty total entires, fifty per species.
+The dataset is made of five columns: petal and sepal length and width, and iris species.
+There are three species and one hundred and fifty total entries, fifty per species.
 
 The data is stored in CSV format, so we can make use of J&rsquo;s [CSV addon][j-csv] to read it for us.
 
@@ -118,11 +118,11 @@ In machine learning contexts, `X` is used to refer to the input features, and `y
 The `X` is upper case to represent that it is a matrix; the `y` is lower case as it is a vector.
 
 The last column is the species of iris &mdash; our class to predict &mdash; so we extract it separately.
-By using [`}:`&nbsp;curtail][nuvoc-curtail] we remove the last row of the CSV (blank, because the file contains a trailing newline) and then [`{:`&nbsp;tail][nuvoc-tail] with [`"`&nbsp;rank][nuvoc-rank] retrieves the last column.
+By using [`}:`&nbsp;curtail][nuvoc-curtail] we remove the last row of the CSV (blank, because the file has a trailing newline) and then [`{:`&nbsp;tail][nuvoc-tail] with [`"`&nbsp;rank][nuvoc-rank] retrieves the last column.
 [`&gt;`&nbsp;open][nuvoc-open] finally unboxes the array.
 
 To get the input features we follow a similar approach.
-Once again the file is curtailed, and then each row is curtailed to produce an array of numbers only.
+Once again, the file is curtailed, and then each row is curtailed to produce an array of numbers only.
 `makenum` is part of the CSV addon and converts the boxed array into a numeric array.
 
 ### Prepare input data for training
@@ -198,7 +198,7 @@ There is one thing left to do for data preparation: splitting our data into trai
 **Test** data is a separate set that is used to independently analyse the model&rsquo;s performance.
 
 By separating these data sets, we prevent the model from simply learning every possible case in the input and regurgitating the answer back at us &mdash; this is called _overfitting_ in machine learning.
-It is not desirable because an overfitted model often performs poorly on novel data, i.e. data not present in what it learnt from, as instabilities in the hyper-specific behaviour it developed are exposed.
+It is not desirable because an overfitted model often performs poorly on novel data, i.e., data not present in what it learnt from, as instabilities in the hyper-specific behaviour it developed are exposed.
 
 In more advanced machine learning approaches, there are [methods to try and prevent overfitting][early stopping] by utilising the test and training data sets together.
 I did not bother to implement these, because I am lazy.
@@ -334,7 +334,7 @@ This takes us on to the next step, however!
 
 We can take our network and replicate it, and then introduce _mutations_ to the replicas.
 The idea borrowed from evolution: random variations in the network&rsquo;s weights may lead to better performance.
-For simplicity, only the best model from any given set will be chosen to &ldquo;reproduce&rdquo; like this, and it will also survive to the next generation, to provide a comparison and avoid performance regressing.
+For simplicity, only the best model from any given set will be chosen to &ldquo;reproduce&rdquo; like this, and it will also survive to the next generation, to act as a comparison and avoid performance regressing.
 
 To train the network, we can now follow a simple loop:
 
@@ -358,8 +358,8 @@ Here&rsquo;s a bunch of code I wrote to do just that.
 ```
 
 `pred` serves the role as a shorthand for our chosen prediction method with an activation function.  
-`replicate` takes a network and a number of times to copy it, and does just that.  
-`fittest` evaluates a number of networks on the same dataset, and uses our `accuracy` verb from earlier to pick the best one and return it.
+`replicate` takes a network and a number of times to copy it and does just that.  
+`fittest` evaluates a number of networks on the same dataset and uses our `accuracy` verb from earlier to pick the best one and return it.
 There is also an intricacy here in that it has to remove the added `X` values, which is what the `}.` does on the second line of `fittest`.  
 Finally, `mutate` takes a network and adds a random amount of variation to every weight in it.
 
@@ -393,7 +393,7 @@ Similarly, `n` is the `y` data.
 Firstly, `evolveStep` deconstructs `m` and `n` to get the individual data sets.
 Then, it finds the best neural network out of the ones it has been given, which will be used as the basis for the next generation.
 For diagnostic purposes, it prints out the accuracy on both the testing and training data sets.
-Then, it copies the best network it had some number of times and mutates it, before prepending the unmodified version as well.
+Then, it copies the best network it had several times and mutates it, before prepending the unmodified version as well.
 
 In short, `evolveStep` is effectively a function that takes one set of networks and produces a new one.
 
@@ -549,7 +549,7 @@ For further improvements, there are some considerations:
 
 - Adding a weight term to each layer.
   In a neural network, a constant factor can be added at each layer, as well as the value from the calculation.
-- Implementing backpropogation.
+- Implementing backpropagation.
 - Using a proper loss function.
 
 Maybe I&rsquo;ll do those some other time.
@@ -558,7 +558,7 @@ For now, this quick project has served its purpose very well.
 All in all, a fun bit of code to write in one evening!
 I highly recommend you trying it yourself, whether using this kind of approach or not.
 
-[backpropogation]: https://en.wikipedia.org/wiki/Backpropagation
+[backpropagation]: https://en.wikipedia.org/wiki/Backpropagation
 [convolutional]: https://en.wikipedia.org/wiki/Convolutional_neural_network
 [cross-entropy]: https://en.wikipedia.org/wiki/Cross_entropy
 [distance]: https://en.wikipedia.org/wiki/Euclidean_distance
