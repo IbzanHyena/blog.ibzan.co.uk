@@ -188,7 +188,7 @@ and we must turn it into numerical data.
 There are two approaches for this: one-hot encoding, and ordinal encoding.
 I chose to use ordinal encoding because of how I planned to evaluate the model later.
 In ordinal encoding, each class is given a distinct integer instead of a textual value.
-This, `Iris-setosa` becomes 0, `Iris-versicolor` becomes 1, and `Iris-virginica` becomes 2.
+Thus, `Iris-setosa` becomes 0, `Iris-versicolor` becomes 1, and `Iris-virginica` becomes 2.
 
 ```j
    labels   =: ~. y
