@@ -574,6 +574,7 @@ I highly recommend you trying it yourself, whether using this kind of approach o
 [nuvoc-curtail]: https://code2.jsoftware.com/wiki/Vocabulary/curlyrtco
 [nuvoc-open]: https://code2.jsoftware.com/wiki/Vocabulary/gt
 [nuvoc-power-of-verb]: https://code2.jsoftware.com/wiki/Vocabulary/hatco
+[nuvoc-rank]: https://code2.jsoftware.com/wiki/Vocabulary/quote
 [nuvoc-tail]: https://code2.jsoftware.com/wiki/Vocabulary/curlylfco
 [perceptron]: https://en.wikipedia.org/wiki/Perceptron
 [recurrent]: https://en.wikipedia.org/wiki/Recurrent_neural_network
