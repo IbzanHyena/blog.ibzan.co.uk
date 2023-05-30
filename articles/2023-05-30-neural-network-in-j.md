@@ -1,8 +1,8 @@
-// title: Writing a Neural Network from Scratch in J
+// title: Writing a Neural Network from Scratch in J for Fun
 // author: Ibzan
 // date: 2023-05-30
 
-# Writing a Neural Network from Scratch in J
+# Writing a Neural Network from Scratch in J for Fun
 
 I have been thinking a lot about neural networks recently, so I decided why not make my own in J?
 The vast majority of neural network &mdash; and machine learning in general &mdash; code that I interact with is written in Python (by which I mean C or C++ with a Python frontend).
