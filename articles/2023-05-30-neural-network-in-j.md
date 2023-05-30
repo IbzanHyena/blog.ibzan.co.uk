@@ -1,6 +1,6 @@
 // title: Writing a Neural Network from Scratch in J
 // author: Ibzan
-// date: 2023-05-29
+// date: 2023-05-30
 
 # Writing a Neural Network from Scratch in J
 
