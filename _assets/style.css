@@ -58,7 +58,7 @@ table.contents { width: 66.67%; }
 .contents .title { width: 80%; }
 .contents td.date { font-family: triplicate_a,monospace; }
 .contents .date { text-align: right; }
-blockquote.aside { padding-left: 0.5em; padding-top: 0.125em; padding-bottom: 0.125em; border-left: 0.125em solid; }
+blockquote.aside { padding-left: 0.5em; border-left: 0.125em solid; }
 img { max-width: 100%; max-height: 100%; }
 
 div.header-img {
