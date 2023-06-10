@@ -33,6 +33,10 @@ pre {
 .header { list-style: "§ "; }
 .header:hover { display: list-item; }
 
+.header>a {
+    margin-left: -0.2em;
+}
+
 p a, .contents a, .header>a {
     padding-left: 0.2em;
     padding-right: 0.2em;
