@@ -78,7 +78,7 @@ In conclusion, I think it works well for a nice quick job like this, while remai
 Naturally, after saying this, I&rsquo;m sure I&rsquo;ll come to regret my words.
 Until then, however, everything is great!
 
-[blog blog]: https://blog.ibzan.co.uk/2022-07-25-blog-generator
+[blog blog]: /2022-07-25-blog-generator
 [cf pages fws]: https://developers.cloudflare.com/pages/framework-guides/
 [cf pages langs]: https://developers.cloudflare.com/pages/platform/build-configuration/#language-support-and-tools
 [jinja]: https://jinja.palletsprojects.com/en/3.1.x/
