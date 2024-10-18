@@ -67,7 +67,7 @@ type Int2Adic = function(a: int, b: int) : int;
 These function types follow the same pattern as the signatures themselves.
 
 The procedural way is not the only way
-Within functional programming, there are also two main styles &mdash; Haskell-style, and ML-style.
+Within functional programming, there are also two main styles&mdash;Haskell-style, and ML-style.
 
 ```
 add :: int -> int -> int
@@ -85,7 +85,7 @@ Again, let&rsquo;s compare these.
 The ML-style function requires a body because the signature is inseparable from it.
 By comparison, the Haskell-style one does not; we can just declare a function of some type.
 
-As well as signatures, functions in functional languages also have types &mdash; and this is far more important in these languages, where higher-order functions are extremely common.
+As well as signatures, functions in functional languages also have types&mdash;and this is far more important in these languages, where higher-order functions are extremely common.
 Both of them use the same syntax, derived from mathematics:
 
 ```
@@ -115,7 +115,7 @@ int -> int -> int
        int -> int
 ```
 
-That&rsquo;s because it is &mdash; the 2-adic function is _curried_.
+That&rsquo;s because it is&mdash;the 2-adic function is _curried_.
 Curried functions take their parameters one at a time, yielding a new function that takes the next until finally all the parameters have been given and the function can return its result.
 
 There are advantages to this style of function which I won&rsquo;t go into here (maybe another time?) but are very interesting in their own right.
@@ -137,11 +137,11 @@ data Bool : Set where
 ```
 
 This is defining two _constructors_ for `Bool`.
-Each of these has type `Bool` &mdash; no additional information is needed to construct the type.
+Each of these has type `Bool`&mdash;no additional information is needed to construct the type.
 `true` and `false` can be used straight away as two values belonging to the type `Bool`.
 
 >>> Note that we have not defined any behaviour for `Bool` yet!
-That is up to us to do &mdash; things like Boolean algebra aren&rsquo;t magically granted to any type with constructors called `true` and `false`, but they do exist in the standard library.
+That is up to us to do&mdash;things like Boolean algebra aren&rsquo;t magically granted to any type with constructors called `true` and `false`, but they do exist in the standard library.
 
 Functions can be defined in a similar method to languages like Haskell:
 
@@ -173,7 +173,7 @@ Furthermore, `A` is the name bound to this parameter, which lets us use it later
 
 The `nothing` constructor isn&rsquo;t too dissimilar from `true` or `false`; by this point, all the required information has been provided, so it is just a value.
 
-`just` is more involved &mdash; it needs a value of type `A` to make a `Maybe A`.
+`just` is more involved&mdash;it needs a value of type `A` to make a `Maybe A`.
 In other words, `just` is a function from `A` to `Maybe A`, hence the signature.
 We can create instances of this type by using the constructors, just as with `Bool`:
 
@@ -220,7 +220,7 @@ Braces around a parameter mark it as _implicit_, i.e., the type checker will att
 There is almost always enough information present for this to happen when the type is being used in its intended fashion.
 
 The next parameter is `(x : A)`.
-`A` is a type, so that means that `x` is a member of `A` &mdash; it is a value, not another type.
+`A` is a type, so that means that `x` is a member of `A`&mdash;it is a value, not another type.
 This is what makes equality dependently-typed in Agda.
 
 Given these two inputs, we are given the signature for the type itself, which is a **function**!
@@ -234,14 +234,14 @@ The last parameter is provided on the right-hand side of the `≡`.
 Now read there is a single constructor, called `refl`.
 The _type_ of `refl` is `x ≡ x`.
 This means that to create an instance of this type, the type checker **must** prove that the value on the left-hand side of the `≡` is the same as the value on the right-hand side.
-In return for proving this, we are given an instance, `refl`, which serves as _evidence_ that this is true &mdash; having a copy of `refl` somewhere in your inputs means you know two things must be the same.
+In return for proving this, we are given an instance, `refl`, which serves as _evidence_ that this is true&mdash;having a copy of `refl` somewhere in your inputs means you know two things must be the same.
 This evidence can then be used in other proofs without repeating the whole chain of reasoning that derives it, or knowing anything more about the values.
 I&rsquo;ll be exploring the concept of evidence further in later posts.
 
 Logically, it makes sense that the definition of equality is that any value is identical to itself.
 This property is called _reflexivity_, and is the reason that the constructor is called `refl`.
 If we have two values that look different at first, but can be shown to be equivalent, then `refl` can be used to construct equality.
-If they _can&rsquo;t_, then we can&rsquo;t use `refl` &mdash; so there is no evidence, and no proof!
+If they _can&rsquo;t_, then we can&rsquo;t use `refl`&mdash;so there is no evidence, and no proof!
 
 While this may not seem like a useful tool at first, the real power comes from how we manipulate the left-hand side to create this instance.
 By applying properties known to the type checker, it can be guided through the steps to show that two different expressions are in fact the same.
@@ -255,9 +255,9 @@ and-false-identity : ∀ {b : Bool} → (false and b) ≡ false
 and-false-identity = refl
 ```
 
-`∀` means for all &mdash; the compiler _must_ show this property holds for every possible value.
+`∀` means for all&mdash;the compiler _must_ show this property holds for every possible value.
 Again, the braces mean that the value of `b` itself is implicit.
-This pattern of providing the values of types implicitly in Agda is common &mdash; more of the attention is given to the _evidence_ that a property holds than the values themselves.
+This pattern of providing the values of types implicitly in Agda is common&mdash;more of the attention is given to the _evidence_ that a property holds than the values themselves.
 It also helps avoid syntactic noise in proofs.
 
 The proof of this property should be fairly easy to follow; we start by asserting what we want to prove.
@@ -299,13 +299,13 @@ Agda allows for this to happen.
 Checking that properties hold _is_ type checking, and uses the same machinery.
 Eliminating edge cases can be done by defining invariants and _proving_ that they hold under all cases.
 
-Types in Agda are almost always built inductively &mdash; there is a base case, and a step from one case to the next.
+Types in Agda are almost always built inductively&mdash;there is a base case, and a step from one case to the next.
 If you can prove something holds for the base case, and it holds whenever you take that step, you have proved it holds for all possible values!
 This concept, [induction][induction], is so powerful that it is used widely for proofs in mathematics.
 I&rsquo;ll be covering this in a later article, too.
 
 Agda, and languages like it, bring that technique to computer science and programming.
-Via the [Curry&ndash;Howard correspondence][Curry-Howard], mathematical proofs and things shown by Agda&rsquo;s type system are isomorphic &mdash; one can be mapped to the other, and vice versa!
+Via the [Curry&ndash;Howard correspondence][Curry-Howard], mathematical proofs and things shown by Agda&rsquo;s type system are isomorphic&mdash;one can be mapped to the other, and vice versa!
 With this power, it is possible to prove that code will _always_ behave a certain way.
 No randomness, no human-generated examples, no untested edge cases.
 Just machine-verifiable properties.
@@ -313,7 +313,7 @@ Just machine-verifiable properties.
 Unfortunately, with great power come a great many problems.
 
 First and foremost, interacting with the outside world is hard!
-Without going into huge detail, Agda asserts that programs must be _total_ &mdash; they must terminate.
+Without going into huge detail, Agda asserts that programs must be _total_&mdash;they must terminate.
 Furthemore, reading files could theoretically yield an unbounded quantity of data; this is dealt with by special data types that allow for termination checking.
 These added complexities make it quite trickly to write an &ldquo;interactive&rdquo; (the Agda name for something that deals with the outside world) program.
 There are some resources for this class of problem, but it is not widespread among Agda programmers.
@@ -328,10 +328,10 @@ This is an area of active work, though, so there may be interesting developments
 Briefly, we have explored the definition of equality in Agda.
 This blog post serves as a primer to Agda materials that assume that you know what its version of equality is, but I also try to explain how it _works_.
 
-If you&rsquo;re interested in more Agda writing, watch this space &mdash; I plan to write more soon.
+If you&rsquo;re interested in more Agda writing, watch this space&mdash;I plan to write more soon.
 
 >>> Some types in this post have been simplified slightly from their definitions in the standard library to avoid having to discuss the [sort system][Sort System] and [universe levels][Universe Levels].
-If you are a set theorist who is worried about Russel&rsquo;s paradox, don&rsquo;t lament &mdash; Agda has a solution!  
+If you are a set theorist who is worried about Russel&rsquo;s paradox, don&rsquo;t lament&mdash;Agda has a solution!  
 Furthermore, the type of equality presented here is known academically as Martin-L&ouml;f Identity.
 
 [Agda]: https://wiki.portal.chalmers.se/agda/pmwiki.php

@@ -53,7 +53,7 @@ As I understand it, this is a feature of [JSX][JSX] which allows the programmer 
 This eases a lot of the potential pain when handling templates between the file they are written in and the script that populates them.
 Everything can instead be passed around in-code with minimal fuss.
 It&rsquo;s no surprise that JSX became popular as a result of React and other front-end libraries since it makes this so easy.
-At the same time, it means the programmer doesn&rsquo;t need to learn a separate template language — everything they already know in TypeScript is valid.
+At the same time, it means the programmer doesn&rsquo;t need to learn a separate template language—everything they already know in TypeScript is valid.
 
 I will admit it feels a bit funny writing things in basically HTML again, instead of using some format like Markdown (which this blog is written in) to generate it.
 However, for a project of this scale, it&rsquo;s really convenient.

@@ -5,11 +5,11 @@
 # Writing a Neural Network from Scratch in J for Fun
 
 I have been thinking a lot about neural networks recently, so I decided why not make my own in J?
-The vast majority of neural network &mdash; and machine learning in general &mdash; code that I interact with is written in Python (by which I mean C or C++ with a Python frontend).
+The vast majority of neural network&mdash;and machine learning in general&mdash;code that I interact with is written in Python (by which I mean C or C++ with a Python frontend).
 This hides a lot of the complexity of the implementation to allow the end user to focus on the higher-level aspects of training one.
 
 However, theoretically, a simple neural network shouldn&rsquo;t be too hard to implement manually.
-The majority of the operations are effectively array and matrix operations &mdash; a task J should be well-suited for.
+The majority of the operations are effectively array and matrix operations&mdash;a task J should be well-suited for.
 
 So why not do it?
 
@@ -66,7 +66,7 @@ The value of each output node then corresponds to the weighting of that class be
 
 A lot of the time, these outputs are run through something like the [logistic function][logistic] to normalise them into the 0&ndash;1 range (and, as we will see later, I chose not to bother, for simplicity).
 
-So, to evaluate the performance of our model &mdash; there are a few typically-used metrics.
+So, to evaluate the performance of our model&mdash;there are a few typically-used metrics.
 I will be using accuracy.
 While it has its flaws, it is easy to understand for a basic project like this.
 
@@ -117,7 +117,7 @@ y =: &gt; {:"1 }: readcsv 'iris.data'
 In machine learning contexts, `X` is used to refer to the input features, and `y` to the known outputs.
 The `X` is upper case to represent that it is a matrix; the `y` is lower case as it is a vector.
 
-The last column is the species of iris &mdash; our class to predict &mdash; so we extract it separately.
+The last column is the species of iris&mdash;our class to predict&mdash;so we extract it separately.
 By using [`}:`&nbsp;curtail][nuvoc-curtail] we remove the last row of the CSV (blank, because the file has a trailing newline) and then [`{:`&nbsp;tail][nuvoc-tail] with [`"`&nbsp;rank][nuvoc-rank] retrieves the last column.
 [`&gt;`&nbsp;open][nuvoc-open] finally unboxes the array.
 
@@ -141,14 +141,14 @@ Don&rsquo;t worry too much about the J.
 Mean on top, standard deviation below.
 
 !!! Open this if you _are_ worried about the J
-Calculating the mean is a common adage in J &mdash; &ldquo;sum over count,&rdquo; or just `+/ % #`, as above.  
+Calculating the mean is a common adage in J&mdash;&ldquo;sum over count,&rdquo; or just `+/ % #`, as above.  
 The standard deviation is then found by subtracting the mean from the initial values and calculating the square root of the mean of the squared values.
-Square and square root are inverses &mdash; so we can use [`&amp;.:`&nbsp;under][nuvoc-under] to perform those operations.
+Square and square root are inverses&mdash;so we can use [`&amp;.:`&nbsp;under][nuvoc-under] to perform those operations.
 The verb we execute under squaring is the mean, and it&rsquo;s exactly the same as before.  
 There is also an appearance from [`"`&nbsp;rank][nuvoc-rank] here, because we are calculating the mean for all of the columns at once.
 It is necessary to use rank so that the shapes of the arrays being subtracted work.  
 More specifically, `$ X` is `150 4`, and `$ means` is `4`.
-Without using rank, J would try to broadcast over the first axis &mdash; obviously that doesn&rsquo;t work here, as 150 is not equal to 4.
+Without using rank, J would try to broadcast over the first axis&mdash;obviously that doesn&rsquo;t work here, as 150 is not equal to 4.
 
 In a neural network, uneven data like this is not desirable, because it means that variations in one input value can have much larger impacts than variations in others.
 To solve this, data is usually normalised.
@@ -170,7 +170,7 @@ _4.32247e_16 _6.57252e_16 2.5091e_16 _1.76155e_16
 1 1 1 1
 ```
 
-This is much better &mdash; exactly what z-score is meant to produce.
+This is much better&mdash;exactly what z-score is meant to produce.
 All the different quantities have been rescaled such that their mean is (effectively) zero, and their standard deviations are one.
 Hence, the same relative variation in one column is represented by the same absolute variation now.
 
@@ -207,7 +207,7 @@ There is one thing left to do for data preparation: splitting our data into trai
 **Training** data is the set of data we will use to judge the model while it learns.  
 **Test** data is a separate set that is used to independently analyse the model&rsquo;s performance.
 
-By separating these data sets, we prevent the model from simply learning every possible case in the input and regurgitating the answer back at us &mdash; this is called _overfitting_ in machine learning.
+By separating these data sets, we prevent the model from simply learning every possible case in the input and regurgitating the answer back at us&mdash;this is called _overfitting_ in machine learning.
 It is not desirable because an overfitted model often performs poorly on novel data, i.e., data not present in what it learnt from, as instabilities in the hyper-specific behaviour it developed are exposed.
 
 In more advanced machine learning approaches, there are [methods to try and prevent overfitting][early stopping] by utilising the test and training data sets together.
@@ -239,7 +239,7 @@ Recall that a layer is made up of some number of nodes, each of which pass on a 
 This is a vector!
 To transform a vector of size m to a vector of size n, you can multiply by an m&times;n matrix.
 
-So, we can represent the neural network as a collection of matrices &mdash; each matrix provides the transformation from one layer to the next.
+So, we can represent the neural network as a collection of matrices&mdash;each matrix provides the transformation from one layer to the next.
 Let&rsquo;s write some code to generate that!
 
 ```j
@@ -278,7 +278,7 @@ In `combineLayers` and `predict`, `u` is the activation function.
 [`.`&nbsp;matrix&nbsp;product][nuvoc-matrix-product] is a conjunction that takes a pair of combining functions to make matrix products.  
 As a motivating example, we can consider the normal matrix product, written in J as `+/ .*`
 The right-hand verb is how the individual elements from rows and columns are combined.
-In matrix multiplication this is multiplication &mdash; so `*`.
+In matrix multiplication this is multiplication&mdash;so `*`.
 The left-hand verb is then how these results are combined into the elements of the new matrix; `+/` is sum, as typical.  
 In our matrix product, we want to take the weighted mean followed by the activation function for our left-hand verb.
 Hopefully, `u@:(+/%#)` makes sense for this.  
@@ -286,7 +286,7 @@ Hopefully, `u@:(+/%#)` makes sense for this.
 
 What should we use as the activation function?
 
-There are lots of choices &mdash; too many to go into here &mdash; but I chose to use [hyperbolic tangent][hyperbolic] because I tried a few and it seemed decent.
+There are lots of choices&mdash;too many to go into here&mdash;but I chose to use [hyperbolic tangent][hyperbolic] because I tried a few and it seemed decent.
 Specifically, I also tried ReLU, the identity function, and inverse tangent.  
 In J:
 
@@ -315,7 +315,7 @@ Like some kind of a superstition accrued from using computers for too long.
 2
 ```
 
-As expected, our network is made of two matrices &mdash; input&ndash;hidden, and hidden&ndash;output.
+As expected, our network is made of two matrices&mdash;input&ndash;hidden, and hidden&ndash;output.
 
 Let&rsquo;s predict some stuff now!
 
@@ -348,7 +348,7 @@ We can compare this to our known `y` values:
 0.266667
 ```
 
->>> Our evaluation metric &mdash; accuracy &mdash; is calculated separately for both the training and testing data sets.
+>>> Our evaluation metric&mdash;accuracy&mdash;is calculated separately for both the training and testing data sets.
 The training accuracy is what will be used to guide the model&rsquo;s evolution.
 By contrast, the test accuracy at this point is just for us to see how the network performs on unseen data.
 
@@ -414,7 +414,7 @@ Combining all of this together into a single verb, we get:
 ```
 
 `acc` is just a shorthand for prepare-and-evaluate.  
-`evolveStep` is more complicated &mdash; it is a conjunction that takes a total of three inputs.
+`evolveStep` is more complicated&mdash;it is a conjunction that takes a total of three inputs.
 `m` is the `X` data, both training and testing.
 Similarly, `n` is the `y` data.
 `y` (sorry for the name clash, but it&rsquo;s unavoidable) here represents our networks.
@@ -442,7 +442,7 @@ We can test this by first generating a number of different networks, and then ru
 Note that out starting train and test accuracy is much better here.
 That is because we generated 1000 neural networks rather than just one, and so by pure luck one of them is pretty decent already.
 
-The output of this is our next generation &mdash; ready for `evolveStep` to be run on it again.
+The output of this is our next generation&mdash;ready for `evolveStep` to be run on it again.
 
 As a simple diagram, `evolveStep` performs the following operation:
 
@@ -559,7 +559,7 @@ The network quickly found an improvement, increasing its training accuracy from 
 However, this actually _decreased_ its accuracy on the test data set.
 
 This is a common occurrence when training machine learning models, especially when there is relatively little data to work with.
-Despite this, we can try running it for longer, and hope that by sheer chance &mdash; the only way this can learn &mdash; that we will get an overall better model.
+Despite this, we can try running it for longer, and hope that by sheer chance&mdash;the only way this can learn&mdash;that we will get an overall better model.
 
 ```j
    bestNetwork =: 5 (Xtrain ; Xtest) evolve (ytrain ; ytest) firstGeneration
@@ -580,7 +580,7 @@ The model has learnt, and this time it improved both on the testing and training
 ### Training better?
 
 How could we improve out training process?
-Perhaps the obvious place to start with this framework is `mutate` &mdash; at the moment, it adds the same amount of randomness to the network regardless of how good we think the model is currently.
+Perhaps the obvious place to start with this framework is `mutate`&mdash;at the moment, it adds the same amount of randomness to the network regardless of how good we think the model is currently.
 
 This could be refined by adding _less_ randomness to the model if it is already good, according to our accuracy measurements.
 Adjusting the amount of randomness is easy:
@@ -609,7 +609,7 @@ I have picked one minus the train accuracy for the magnitude.
 
 Why?
 
-I dunno, felt right &mdash; the closer we get, the smaller the variations should be, like some crude form of [gradient descent][gradient descent].
+I dunno, felt right&mdash;the closer we get, the smaller the variations should be, like some crude form of [gradient descent][gradient descent].
 
 Does it help?
 

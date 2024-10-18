@@ -13,7 +13,7 @@ Hi!
 I&rsquo;m Ibzan, a spotted hyena hailing from the UK. My interests include programming, photography, hillwalking, physics, data, and generally messing around with computers.
 Yes, I run Linux.
 
-This site will contain various musings &mdash; I don&rsquo;t have any specific plans for the blog, but I&rsquo;ll probably write about the things I&rsquo;ve enjoyed coding recently as well as any furry-relevant stories that seem fun.
+This site will contain various musings&mdash;I don&rsquo;t have any specific plans for the blog, but I&rsquo;ll probably write about the things I&rsquo;ve enjoyed coding recently as well as any furry-relevant stories that seem fun.
 
 You may notice that the design is relatively minimal.
 That&rsquo;s because I expect people will use the reader mode present in most modern browers to read posts, so there&rsquo;s minimal value in going overboard on the design.

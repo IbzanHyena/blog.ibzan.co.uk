@@ -19,14 +19,14 @@ I do have some gripes with the language as well, which I&rsquo;ll talk about too
 Finally, I&rsquo;ll cover some of the changes I would make to an array language like J if I were designing my own.
 
 This article contains some moderately complex J code.
-It isn&rsquo;t too important to understand to get the points in the article &mdash; feel free to skim over it as it comes up.
+It isn&rsquo;t too important to understand to get the points in the article&mdash;feel free to skim over it as it comes up.
 I&rsquo;ve provided surface-level explanations but refrained from digressing too far to fully explore the way the code works.
 
 If you want to follow along with any of the examples, you may find the following useful:
 
 - [NuVoc][nuvoc], the glossary of J vocabulary
 - [J download][J-download], for installing yourself
-- [J online][J-online], to just try out small snippets &mdash; follow along!
+- [J online][J-online], to just try out small snippets&mdash;follow along!
 
 ## Why did I start writing J?
 
@@ -89,7 +89,7 @@ They are the words that manipulate nouns by doing something to them.
 
 Verbs have a **valence**, which is how many arguments they take.
 In J, there are only two options: **monadic** (unary, one argument) and **dyadic** (binary, two arguments).
-This is because the syntax only allows for a verb to take up to two arguments &mdash; one to the left, and one to the right.
+This is because the syntax only allows for a verb to take up to two arguments&mdash;one to the left, and one to the right.
 J does not have function calls with brackets like other languages.
 Everything is either prefix or infix, based on its valence.
 
@@ -143,11 +143,11 @@ Quotes demarcate strings, brackets control execution order, and comment markers 
 
 ### Rank
 
-Rank is an important concept in J &mdash; by which I mean both noun rank and verb rank.
+Rank is an important concept in J&mdash;by which I mean both noun rank and verb rank.
 The rank of a noun and a verb operating on it is responsible for lots of behaviour, similar to nested loops in imperative languages.
 
 To understand _noun_ rank better, it may be useful to build up higher rank nouns inductively.
-A rank 0 noun is an atom &mdash; a single value.
+A rank 0 noun is an atom&mdash;a single value.
 
 ```j
    1
@@ -173,7 +173,7 @@ An example list would be:
 %%% $ 1 2 3 4 5 %%%
 ```
 
-The shape of this list is `5` &mdash; it contains five items in a single axis.
+The shape of this list is `5`&mdash;it contains five items in a single axis.
 
 Just as a list is a sequence of atoms, a _table_ (rank 2 array) is a sequence of lists of the same length.
 We can build a table with verbs like [`i.`&nbsp;integers][nuvoc-integers], dyadic [`$`&nbsp;shape][nuvoc-shape], or [`,:`&nbsp;laminate][nuvoc-laminate].
@@ -236,7 +236,7 @@ Similarly, `-` is [minus][nuvoc-minus] and `-:` is [halve][nuvoc-halve], `*` is 
 This helps learning primitives by making related effects have related representations.
 
 Having access to all these primitives allows for terse code.
-Sometimes terseness is viewed as a negative, but I believe there is an appropriate level of it &mdash; verbosity can be equally painful to follow.
+Sometimes terseness is viewed as a negative, but I believe there is an appropriate level of it&mdash;verbosity can be equally painful to follow.
 It also aids writing in a point-free style (typically called _tacit_ within array languages).
 This is in itself especially useful when dealing with [modifier trains](#modifier trains).
 
@@ -304,20 +304,20 @@ The feature I like best about JQt is its terminal, which I have found great for 
 The main feature of JQt that most other REPLs don&rsquo;t have is a mutable history.
 JQt allows the user to treat the entire page as editable.
 You can go to a previous line and edit or delete it if desired.
-Deletion is the main thing I use this for &mdash; removing a lengthy output or failed solution from the page to keep it clean.
+Deletion is the main thing I use this for&mdash;removing a lengthy output or failed solution from the page to keep it clean.
 I also often prepare gists in the terminal, since it allows for writing text in comments alongside actually running code easily.
 
 The ability to edit history is a double-edged sword.
 It is possible for the user to edit the output or a prompt in a way that is misleading later.
 So far this hasn&rsquo;t bitten me, and J does keep a separate log of inputs, but it is a potential issue.
 
-An improvement here could be to basically copy the way a [Jupyter notebook][jupyter] handles it &mdash; by having cells.
+An improvement here could be to basically copy the way a [Jupyter notebook][jupyter] handles it&mdash;by having cells.
 In fact, there is a way to run [J inside a Jupyter notebook][J-jupyter].
 I have played around with it a bit, but I haven&rsquo;t switched to using it full-time.
 Ultimately, by allowing the user to remove or replace bits of history that aren&rsquo;t useful, but not letting them edit the output directly, the most sensible balance is probably struck.
 
 JQt also comes with in-built support for debugging, running snippets, project management, as one would expect from an IDE, although it is a bit less clear than other IDEs.
-This is all useful stuff one would (and should, from a serious language) expect nowadays, and the best part is definitely the interactive terminal &mdash; especially the deletable history &mdash; in my opinion.
+This is all useful stuff one would (and should, from a serious language) expect nowadays, and the best part is definitely the interactive terminal&mdash;especially the deletable history&mdash;in my opinion.
 
 ### `^:` Power of verb conjunction
 
@@ -345,7 +345,7 @@ A basic example is repeating an operation for a fixed number of times.
 NuVoc links: [`*:`&nbsp;square][nuvoc-square], [`i.`&nbsp;integers][nuvoc-integers].
 
 Zero and one are also both numbers, which can be used to create a construct similar to `if` in other languages.
-A verb to the power of zero has the analogy of a number to the power of zero equalling one &mdash; in this case, doing nothing.
+A verb to the power of zero has the analogy of a number to the power of zero equalling one&mdash;in this case, doing nothing.
 
 ```j
    n =: %%% n =: 2%%%
@@ -430,7 +430,7 @@ This is useful for repeating an operation a set number of times when you want to
 
 NuVoc links: [`^`&nbsp;power][nuvoc-power], [`i.`&nbsp;integers][nuvoc-integers], [`|.`&nbsp;reverse][nuvoc-reverse], [`/`&nbsp;insert][nuvoc-insert], [`\.`&nbsp;suffix][nuvoc-suffix], [`$`&nbsp;shape][nuvoc-shape].
 
-So far, `^:` has only been used with a fixed value for the power &mdash; either a number, or another noun like `_` or `a:`.
+So far, `^:` has only been used with a fixed value for the power&mdash;either a number, or another noun like `_` or `a:`.
 
 `^:` also supports a dynamic application, where the power is determined by a verb.
 Instead of the &ldquo;power&rdquo; being a noun (value), it can also be a verb (function).
@@ -513,7 +513,7 @@ NuVoc links: [`?.`&nbsp;roll][nuvoc-roll-fixed], [`+`&nbsp;plus][nuvoc-plus], [`
 
 This is, of course, a rather simple example.
 A lot of code follows the basic pattern of having two monads with a dyad to combine the result.
-Forks within forks are also useful &mdash; one of the monadic verbs of a (monadic) fork can itself be a fork.
+Forks within forks are also useful&mdash;one of the monadic verbs of a (monadic) fork can itself be a fork.
 
 Hooks are made of a pair of verbs: a monad, and a dyad.
 The monad &ldquo;pre-processes&rdquo; one argument, and then the dyad combines its result with either the other input argument (in the dyadic case), or the unmodified input (in the monadic case).
@@ -552,7 +552,7 @@ NuVoc links: [`i.`&nbsp;integers][nuvoc-integers], [`|`&nbsp;residue][nuvoc-resi
 
 Here, `(#~ 2&|)` is the hook, made of two composite verbs.
 `#~` acts as a filter, with the right-hand argument being the mask and the left-hand argument being the thing to filter.
-`2&|` finds the remainder modulo 2 &mdash; 1 for odd numbers, 0 for evens.
+`2&|` finds the remainder modulo 2&mdash;1 for odd numbers, 0 for evens.
 
 It is possible to write longer modifier trains, too.
 In my experience they get quite hard to read though.
@@ -680,10 +680,10 @@ It is one of the best debugging and explanation tools I have encountered in a la
 When writing a language as dense as J, it can be hard to fully understand how data is being passed around between verbs.
 
 This is where dissect can help.
-After loading the addon into your J session (`require&nbsp;'debug/dissect'`), you are given access to a new verb `dissect` that takes a single argument &mdash; a string of a J sentence that produces a noun result.
+After loading the addon into your J session (`require&nbsp;'debug/dissect'`), you are given access to a new verb `dissect` that takes a single argument&mdash;a string of a J sentence that produces a noun result.
 If the sentence does _not_ produce a noun, dissect cannot display it; it only tracks how data flows throughout the snippet from starting inputs to a final output.
 
-Dissect was used to generate the diagrams in earlier sections &mdash; but it also allows you to interrogate the steps further.
+Dissect was used to generate the diagrams in earlier sections&mdash;but it also allows you to interrogate the steps further.
 
 ![A diagram showing the intermediate steps of summing the numbers 1, 2, 3, 4, and 5.](assets/thoughts-on-j/partial-sum.png)
 
@@ -695,7 +695,7 @@ The visual approach can really help communicate things like forks and hooks easi
 
 ### Cyclic gerunds
 
-In J, a [gerund][nuvoc-gerunds] is a collection of verbs (sort of &mdash; it&rsquo;s more complicated, but for now this explanation will suffice).
+In J, a [gerund][nuvoc-gerunds] is a collection of verbs (sort of&mdash;it&rsquo;s more complicated, but for now this explanation will suffice).
 Gerunds have several different uses within J, such as allowing for dispatching a different verb based on some condition (see [`@.`&nbsp;agenda][nuvoc-agenda]).
 One of these uses is to alternately apply the different verbs it represents.
 
@@ -719,7 +719,7 @@ Another example is when combined with the [`"`&nbsp;rank][nuvoc-rank] conjunctio
 
 NuVoc links: [`+:`&nbsp;double][nuvoc-double], [`-:`&nbsp;halve][nuvoc-halve].
 
-Here, the verb is acting on rank 0 &mdash; the individual [atoms][nuvoc-atom] of the input array.
+Here, the verb is acting on rank 0&mdash;the individual [atoms][nuvoc-atom] of the input array.
 Then, the gerund cycles through its elements to apply the given verb to each of those cells.
 This works for any given rank:
 
@@ -769,7 +769,7 @@ The rank operator also provides the motivation for making verbs act on the first
 The ability to specify what cells of an array a verb acts on are how J allows the programmer to avoid writing explicit loops and still get fine-grained control over effects.
 
 J was designed from the ground up with the leading axis model in mind (unlike both SHARP and Dyalog APL, which had it retrofitted on).
-As a result, all of J&rsquo;s primitives are designed with the leading axis model in mind &mdash; rank one functions all operate on the first axis, for example.
+As a result, all of J&rsquo;s primitives are designed with the leading axis model in mind&mdash;rank one functions all operate on the first axis, for example.
 This leads to many array operations being intuitive in J (at least in my experience).
 
 ```j
@@ -835,7 +835,7 @@ That was a lot of usage of the word &ldquo;rank&rdquo;, so let&rsquo;s consider 
 
 NuVoc links: [`i.`&nbsp;integers][nuvoc-integers], [`+`&nbsp;add][nuvoc-add], [`"`&nbsp;rank][nuvoc-rank].
 
-Rank can be a tricky concept to understand, but it is an extremely useful one when you do &mdash; so much of J revolves around it.
+Rank can be a tricky concept to understand, but it is an extremely useful one when you do&mdash;so much of J revolves around it.
 
 ### Mathematical primitives and verbs
 
@@ -843,7 +843,7 @@ These are great for small puzzles.
 Want prime numbers?
 [`p:`&nbsp;primes][nuvoc-primes] will give them to you.
 J also gives you access to [complex numbers][essay-complex], [polynomials][nuvoc-polynomial] and [their roots][nuvoc-roots], [prime factors][nuvoc-prime-factors], and [hypergeometric][nuvoc-hypergeometric] [trigonometric, and hyperbolic][nuvoc-circle-fns] functions as primitives.
-The standard library also has calculus facilities &mdash; J can find the derivative and integral of a lot of verbs, including user-defined ones.
+The standard library also has calculus facilities&mdash;J can find the derivative and integral of a lot of verbs, including user-defined ones.
 Very handy to have.
 
 Obviously other languages have a lot of these features too, but things like having easy access to primes and polynomials from primitives is invaluable for some kinds of problems.
@@ -864,8 +864,8 @@ This means that if you have a script that loads another in it, the working direc
 J does have a workaround for this: `jpath`.
 It provides a way of referring to certain system paths that you might use a lot.
 For example, `~Projects/md/md.ijs` might resolve to `/home/ibzan/j903-user/projects/md/md.ijs`.
-The problem with this approach is it still relies on an absolute path effectively &mdash; just trading `/home/ibzan/j903-user/projects` for `~Projects`.
-Requiring all J code to be installed in a specific location is the behaviour I want to avoid &mdash; while less bad for referring to separate projects, it means code within the _same_ project must know where it is installed!
+The problem with this approach is it still relies on an absolute path effectively&mdash;just trading `/home/ibzan/j903-user/projects` for `~Projects`.
+Requiring all J code to be installed in a specific location is the behaviour I want to avoid&mdash;while less bad for referring to separate projects, it means code within the _same_ project must know where it is installed!
 
 I strongly believe that file imports should be relative to the directory the script is in.
 For the most part, this is what you actually want as a user!
@@ -878,7 +878,7 @@ Although only a bit of work, it is vastly more obtuse than should be necessary.
 
 J has exceptions.
 I do not like exceptions in the first place, but within J it feels like the best compromise for signalling errors.
-The type system is not rich enough to support option or result types, and errors are generally rare at &ldquo;runtime&rdquo; &mdash; more often than not they are effectively programming errors.
+The type system is not rich enough to support option or result types, and errors are generally rare at &ldquo;runtime&rdquo;&mdash;more often than not they are effectively programming errors.
 Many exceptions are closer to compiler errors than runtime exceptions, since J is an interpreted language.
 
 There are still potential runtime errors, such as incorrect datatypes, invalid inputs, memory errors and such, but they are typically not an issue for the scale I work at.
@@ -974,11 +974,11 @@ This quick experiment in working out a better format shows, in my opinion, how e
 
 ### Documentation
 
-J documentation is often sufficient or very good &mdash; especially with primitives and core language concepts &mdash; but sometimes lacking.
+J documentation is often sufficient or very good&mdash;especially with primitives and core language concepts&mdash;but sometimes lacking.
 In particular, descriptions of addons are frequently missing or equally terse as the language itself, which doesn&rsquo;t aid readability when looking for a detailed description.
 The lack of an easy way to search the contents of addons makes them hard to adopt.
 
-A recent example &mdash; I needed to copy a directory to a new location.
+A recent example&mdash;I needed to copy a directory to a new location.
 I expected that this would be a foreign, which is where file copying is.  
 Nope.  
 I tried implementing my own, but it caused the interpreter to segfault.
@@ -1040,7 +1040,7 @@ This is most prevalent with J&rsquo;s [foreigns][nuvoc-foreigns].
 Foreigns are what J calls access to system functions, like reading a file or getting the current time, and some miscellaneous functions, like debugging controls and some things that don&rsquo;t fit into primitives.
 
 All foreigns are addressed as a pair of numbers and the [`!:`&nbsp;foreign][nuvoc-foreign] conjunction.
-This ends up being quite hard to remember in my experience &mdash; I prefer having names to numeric combinations.
+This ends up being quite hard to remember in my experience&mdash;I prefer having names to numeric combinations.
 As with above, assigning names myself or finding an appropriate addon will help, but is a bit tedious to repeat.
 
 The once cases where I have found numeric codes acceptable is within the [`;:`&nbsp;sequential machine][nuvoc-seq-mac] primitive.
@@ -1189,7 +1189,7 @@ The adverb [`f.`&nbsp;fix][nuvoc-fix] can be used to recursively expand names to
 
 Furthermore, a gerund created with [`` ` ``&nbsp;tie][nuvoc-tie] is actually stored as an array of boxed strings.
 
-The representation of a verb with names in it in the meantime is not ideal &mdash; although unlikely, something that is not a verb could be recognised as one if used in the wrong scenario.
+The representation of a verb with names in it in the meantime is not ideal&mdash;although unlikely, something that is not a verb could be recognised as one if used in the wrong scenario.
 Ideally, I think this should be cleaned up to prevent it from being possible in the first place.
 
 #### Rank Mishaps
@@ -1205,10 +1205,10 @@ As covered in the [leading axis model](#leading-axis-model-and-rank) section, th
 
 For example, the verb [`+`&nbsp;plus][nuvoc-plus] has rank `0 0`.
 This means that both the `x` and `y` input arrays are broken down into atoms, added individually, and then collected to the original shape.
-Note that the leading axes of the operands must still agree &mdash; you cannot add incompatible array shapes.
+Note that the leading axes of the operands must still agree&mdash;you cannot add incompatible array shapes.
 
 By comparison, consider the verb [`#`&nbsp;tally][nuvoc-tally].
-It has rank `_` &mdash; infinity.
+It has rank `_`&mdash;infinity.
 That means that it can take an input array of any rank whatsoever and produce an output without subdividing it.
 This is because tally counts the number of elements in the first axis, so it can work on an array of any rank.
 
@@ -1251,7 +1251,7 @@ Currently, J supports two kinds of namespaces: private namespaces, for definitio
 Private namespaces are for all intents and purposes inaccessible to the programmer.
 They serve only to bundle together the contents of an explicit definition.
 
-To me, locales feel very hacky to use &mdash; they are accessed by appending `_localename_` to the name of something you want to access, where `localename` is the name of the locale.
+To me, locales feel very hacky to use&mdash;they are accessed by appending `_localename_` to the name of something you want to access, where `localename` is the name of the locale.
 This form is called a _locative_.
 For example, after loading `math/calculus`, one must use `deriv_jcalculus_` to access the `deriv` name it contains.
 
@@ -1269,8 +1269,8 @@ This behaviour can introduce subtle bugs into code that are hard to track down.
 The only place I found this mentioned was on the page for [`f.`&nbsp;fix][nuvoc-fix] which covers the problem and a solution.
 
 I would change this by replacing locales with a new datatype: namespaces.
-My namespace is a first class value that contains names, accessible via some primitive &mdash; while appearing similar from the outside, requiring explicit access into a namespace would prevent the above issues.
-Precisely what symbol would be used for access I am not sure &mdash; something not already used would have to be picked, which rules out something common like `.` or `::`, and J&rsquo;s syntax doesn&rsquo;t support `->`.
+My namespace is a first class value that contains names, accessible via some primitive&mdash;while appearing similar from the outside, requiring explicit access into a namespace would prevent the above issues.
+Precisely what symbol would be used for access I am not sure&mdash;something not already used would have to be picked, which rules out something common like `.` or `::`, and J&rsquo;s syntax doesn&rsquo;t support `->`.
 Of course, in a hypothetical successor language this would be designed from the ground up instead of being retrofitted into the existing specification.
 
 I think this would be an overall benefit, allowing for a more sensible approach to grouping names together.
@@ -1286,9 +1286,9 @@ Within array languages, the 2-train as hook is an oddity of J&rsquo;s.
 Most other array languages treat a 2-train as composition of some form (J has four composition conjunctions).
 
 In the meantime, the composition conjunctions and a capped fork (`[:&nbsp;v&nbsp;u`, with [`[:`&nbsp;cap][nuvoc-cap]) are both available for composition.
-I use both of these forms from time to time &mdash; in fact [md][md] uses both capped forks and composition conjunctions, based on the situation.
+I use both of these forms from time to time&mdash;in fact [md][md] uses both capped forks and composition conjunctions, based on the situation.
 
-The hook is then moved to its own conjunction &mdash; such as `h.` in J, as Hui suggests &mdash; and used as a normal modifier.
+The hook is then moved to its own conjunction&mdash;such as `h.` in J, as Hui suggests&mdash;and used as a normal modifier.
 This would also allow for both a &ldquo;forward hook&rdquo; and &ldquo;backward hook&rdquo;, an idea shamelessly stolen from BQN.
 For example, `f&nbsp;h.&nbsp;g&nbsp;y` could be equivalent to `y&nbsp;f&nbsp;g&nbsp;y`, and `f&nbsp;H.&nbsp;g&nbsp;y` could be equivalent to `y&nbsp;g&nbsp;f&nbsp;y`, with similar for the dyadic case.
 Any backward hook could be written as a forward hook, however I believe there are scenarios where one would be clearer than the other based on surrounding context.
@@ -1299,7 +1299,7 @@ Given the ubiquity of function composition however, I believe that the terser sy
 
 By default, J treats strings as a sequence of bytes (the same way C does, which the J interpreter is written in).
 However, a large amount of text these days is represented as Unicode.
-J does have support for Unicode &mdash; the [`u:`&nbsp;Unicode][nuvoc-unicode] primitive provides conversions to and from Unicode.
+J does have support for Unicode&mdash;the [`u:`&nbsp;Unicode][nuvoc-unicode] primitive provides conversions to and from Unicode.
 J could be changed to support Unicode by default for strings, which would simplify dealing with modern text.
 This isn&rsquo;t a huge problem (IO verbs can be created that handle UTF-8 instead of ASCII), but a bit of a faff to have to handle manually.
 Mostly, this is an artifact of the age of the language.

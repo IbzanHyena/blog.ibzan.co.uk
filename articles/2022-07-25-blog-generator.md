@@ -17,7 +17,7 @@ At a future point in time I may write an entire blog post introducing J as a lan
 
 Because I&rsquo;ve been writing short J programs recently and wanted to try a larger project.
 So far, all of my J code has been intended to run from the J terminal.
-This would be different &mdash; it needs to be run from the command line, ideally on a CI runner somewhere.
+This would be different&mdash;it needs to be run from the command line, ideally on a CI runner somewhere.
 I also wanted to see how J tackles larger projects.
 
 ### About J
@@ -126,7 +126,7 @@ blog is also written in J, and generates HTML files and an index page from a giv
 blog uses template HTML files to insert relevant data from the Markdown into pre-made pages.
 It also extracts metadata from the file to generate the index page, and copies assets into the finished site.
 
-The biggest pain point when creating blog was actually that last one &mdash; copying assets.
+The biggest pain point when creating blog was actually that last one&mdash;copying assets.
 J does not have any in-built recursive directory copying utilities, and the one I wrote somehow resulted in the interpreted segfaulting.
 As a backup, I resorted to invoking `cp -r` on the command line and not thinking too hard about it.
 
@@ -160,7 +160,7 @@ Despite all the difficulties involved with various stages of the project, over a
 As a language, J is not particularly well-suited to this genre of problem. Part of this is because of the array model that J uses, called the flat array model.
 In the flat array model, all arrays are rectangular pieces of data in some number of dimensions.
 A string in J is a vector (rank one array) of characters.
-This is one of the problems &mdash; to represent a collection of strings of varying length, they must either be padded with fill characters (typically spaces) to form a rectangle, or boxed (stored behind a pointer) so that the array of _boxes_ can be a rectangle.
+This is one of the problems&mdash;to represent a collection of strings of varying length, they must either be padded with fill characters (typically spaces) to form a rectangle, or boxed (stored behind a pointer) so that the array of _boxes_ can be a rectangle.
 Since I wanted to avoid adding extra whitespace to the documents I&rsquo;m working with, boxing was required, but this adds complexity to the code needed to manipulate the text.
 
 There are different array models out there.
