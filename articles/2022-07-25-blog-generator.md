@@ -2,8 +2,6 @@
 // author: Ibzan
 // date: 2022-07-25
 
-# Hello, World: Making a Static Blog Generator from Scratch
-
 For the first blog post on this site, I thought an introduction to the blog generator that it is made by is in order.
 I wrote it myself over the course of a few days in the [J programming language][J], an array language based on [APL][APL].
 All in all, the project spans five (or maybe six) GitHub repos, and was quite fun to work on.

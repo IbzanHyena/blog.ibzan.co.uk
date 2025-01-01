@@ -2,8 +2,6 @@
 // date: 2024-10-18
 // author: Ibzan
 
-# A Proof of Cantor’s Diagonal Argument in Agda
-
 One of my favourite proofs in mathematics is [Cantor’s diagonal argument][CDA].
 It’s an elegant way of proving that there are sets with a greater cardinality than the naturals.
 I remember [reading][cabinet] about it when I was around eight or nine in the context of [Hilbert’s hotel][Hilbert's hotel].

@@ -2,8 +2,6 @@
 // date: 2023-01-06
 // author: Ibzan
 
-# TypeScript as an HTML Templating Format
-
 I made a [website to serve as a character reference][ref] recently.
 It&rsquo;s [written in TypeScript using Next.js][ref source], and it got me thinking.
 

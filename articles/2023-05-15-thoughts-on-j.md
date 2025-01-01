@@ -2,8 +2,6 @@
 // author: Ibzan
 // date: 2023-05-15
 
-# Thoughts on J
-
 I&rsquo;ve been writing [the J programming language][J] regularly since roughly June 2022, so I thought I&rsquo;d write a blog post about my experience with it so far.
 Originally, I wrote this post all the way back in July 2022.
 It is now&hellip; May 2023.

@@ -2,8 +2,6 @@
 // date: 2023-05-19
 // author: Ibzan
 
-# Agda: What Even is Propositional Equality?
-
 _I would like to apologise in advance for the inevitable semantic satiation you will experience when reading the word &ldquo;type&rdquo; in this post. Sorry._
 
 If you ever read or write [Agda][Agda], you will come across the following import statement in practically every piece of code you read:
