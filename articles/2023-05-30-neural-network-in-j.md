@@ -515,7 +515,7 @@ As a simple diagram, `evolveStep` performs the following operation:
 ### Repeat this process until the result is satisfactory
 
 We just need to repeat the above process many times!
-J aficionados may know of the [`^:`&nbsp;power&nbsp;of&nbp;verb][nuvoc-power-of-verb] conjunction, which does exactly that.
+J aficionados may know of the [`^:`&nbsp;power&nbsp;of&nbsp;verb][nuvoc-power-of-verb] conjunction, which does exactly that.
 
 For the sake of getting a single model returned, we can also wrap it in a final evaluation step to pick the best network from the last generation.
 
