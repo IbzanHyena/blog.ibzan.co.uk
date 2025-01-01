@@ -10,6 +10,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: 60ch;
+    text-align: justify;
 }
 
 code { 
@@ -58,8 +59,7 @@ a code { font-family: triplicate_a_code,monospace; font-variant-caps: normal; }
 
 .centred-text { text-align: center; }
 .centred { margin-left: auto; margin-right: auto; }
-.contents th.title { text-align: left; }
-.contents .title { width: 80%; }
+.contents .title { text-align: left; width: 80%; }
 .contents td.date { font-family: triplicate_a,monospace; }
 .contents .date { text-align: right; }
 blockquote.aside { padding-left: 0.5em; border-left: 0.125em solid; }
