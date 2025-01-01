@@ -15,9 +15,8 @@ Yes, I run Linux.
 
 This site will contain various musings&mdash;I don&rsquo;t have any specific plans for the blog, but I&rsquo;ll probably write about the things I&rsquo;ve enjoyed coding recently as well as any furry-relevant stories that seem fun.
 
-You may notice that the design is relatively minimal.
-That&rsquo;s because I expect people will use the reader mode present in most modern browers to read posts, so there&rsquo;s minimal value in going overboard on the design.
 The main font used across this website is the excellent [Heliotrope][heliotrope] by Matthew Butterick.
+For code and code blocks, I use [Triplicate][triplicate], also by Butterick.
 
 Thanks for stopping by!
 If you&rsquo;re looking for code, check my [GitHub][github].
@@ -33,3 +32,4 @@ I probably won&rsquo;t read any notes sent there in a timely fashion though.
 [email]: mailto:ibzan@ibzan.co.uk
 [furaffinity]: https://www.furaffinity.net/user/ibzanhyena/
 [mastodon]: https://queer.party/@ibzan
+[triplicate]: https://mbtype.com/fonts/triplicate/
