@@ -58,7 +58,6 @@ a code { font-family: triplicate_a_code,monospace; font-variant-caps: normal; }
 
 .centred-text { text-align: center; }
 .centred { margin-left: auto; margin-right: auto; }
-table.contents { width: 66.67%; }
 .contents th.title { text-align: left; }
 .contents .title { width: 80%; }
 .contents td.date { font-family: triplicate_a,monospace; }
