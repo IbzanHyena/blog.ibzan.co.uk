@@ -11,7 +11,6 @@ Digital painting
 
 Hi!  
 I&rsquo;m Ibzan, a spotted hyena hailing from the UK. My interests include programming, photography, hillwalking, physics, data, and generally messing around with computers.
-Yes, I run Linux.
 
 This site will contain various musings&mdash;I don&rsquo;t have any specific plans for the blog, but I&rsquo;ll probably write about the things I&rsquo;ve enjoyed coding recently as well as any furry-relevant stories that seem fun.
 
@@ -23,10 +22,13 @@ If you&rsquo;re looking for code, check my [GitHub][github].
 Want to get in touch?
 I&rsquo;d love to hear from you if you have any thoughts relating to the content here!
 The most reliable method is [email][email].
-I also have a [Mastodon account][mastodon], and an [FA][furaffinity] page which I keep mostly up to date with art.
-I probably won&rsquo;t read any notes sent there in a timely fashion though.
+I also have a [Mastodon][mastodon] and [BlueSky][bsky] account if you want to contact me there.
+
+For art, I have [my own gallery][gallery] which I keep as up to date as I can with art.
 
 [Blaze Silverwolf caard]: https://itsdablazewolf.carrd.co/
+[bsky]: https://bsky.app/profile/ibzan.co.uk/
+[gallery]: https://gallery.ibzan.co.uk/
 [github]: https://github.com/IbzanHyena
 [heliotrope]: https://mbtype.com/fonts/heliotrope/
 [email]: mailto:ibzan@ibzan.co.uk
