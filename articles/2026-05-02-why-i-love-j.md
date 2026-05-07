@@ -67,7 +67,7 @@ By giving the programmer the ability to interact with more types, J trades away 
 Another example of J picking a nuanced middle ground is its approach to code optimisations.
 The interpreter performs certain optimisations when it can detect them.
 However, you can also choose to use what J calls [“special combinations”][special-combinations] to provide a known optimisation to the compiler.
-For these cases, the intepreter will recognise the pattern and dispatch an entirely different codepath in C to handle it, designed for the soeciifc case of the combination rather than the general case of all of its constituent parts.
+For these cases, the intepreter will recognise the pattern and dispatch an entirely different codepath in C to handle it, designed for the specific case of the combination rather than the general case of all of its constituent parts.
 At first, this behaviour may seem unwieldly or opaque, but it’s a side effect of the simplicity of the interpeter’s control loop, which has benefits in other areas when considered on the whole.
 Special combinations are a sensible trade-off between the effort the interpreter has to put into understanding code and the effort the programmer has to put into writing efficient code.
 
