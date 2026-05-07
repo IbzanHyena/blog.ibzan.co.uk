@@ -22,7 +22,7 @@ If you&rsquo;re looking for code, check my [GitHub][github].
 Want to get in touch?
 I&rsquo;d love to hear from you if you have any thoughts relating to the content here!
 The most reliable method is [email][email].
-I also have a [Mastodon][mastodon] and [BlueSky][bsky] account if you want to contact me there.
+I also have a [Mastodon][mastodon] and [Bluesky][bsky] account if you want to contact me there.
 
 For art, I have [my own gallery][gallery] which I keep as up to date as I can with art.
 
