@@ -33,11 +33,6 @@ Few languages give me such a lack of mental friction.
 Sometimes, words like brief and terse are used as a bit of a backhanded compliment.
 The main connotations are generally that, as well as being short, these languages are illegible or even completely impenetrable.
 
-At the risk of sounding like a zealot, this simply isn’t true.
-
-None of us knew how to code at some point in time: reading and understanding code is a skill that takes effort.
-The different presentation of array languages can make that more to learn—_but there’s more to learn_.
-That is a benefit in of itself.
 
 More generally, fundamental programing skills like how to structure a program and break down a program into constituent parts haven’t gone away, but rather have different building blocks to work with.
 When an algorithm fits on one line, the functions you build can be bigger.
@@ -47,14 +42,14 @@ While the theoretical expressive power of J is no better than any other Turing-c
 You only need to scroll through [NuVoc][nuvoc] to see just how many operations are made immediately available to the programmer—and would typically be a library function in most languages.
 
 Compared to other array languages, the sheer number of primitives is something that sets J apart.
-I believe this has emerged because J opted to use ASCII for its primitives, rather than the more typical symbology found in APL, BQN, uiua, and more.
+I believe this has emerged because J opted to use ASCII for its primitives, rather than the more typical symbology found in APL, BQN, uiua, and others.
 Simply put, there aren’t enough good Unicode glyphs to make some of the primitives J uses; most array languages try to pick some consistent symbology to serve as a mnemonic.
 While many of them are basic and could be built out of other ones already provided, providing the more complete set J does can make writing code faster, in my experience.
 
-If you were curious—the way that J tackles the symbol problems is by allowing its glyphs to be multiple characters.
+The way that J tackles the symbol problems is by allowing its glyphs to be multiple characters.
 This is a bit of a necessity for an ASCII-based array language with lots of primitives.
-They’re built out of a single root symbol and then an inflection (either `.` or `:`) in the vast majority of cases, save a special few exceptions.
-Then, similar operations are grouped by the radical and the inflection.
+In the vast majority of cases, they’re built out of a single root symbol and then an inflection (either `.` or `:`).
+Similar operations are grouped by the radical and the inflection.
 Thus, `+` is add and `+:` is double, `-` is subtract and `-:` is halve, `*` is multiply and `*:` is square, and `%` is divide and `%:` is square root.
 This second axis provides the memorability of related symbols without leaving ASCII.
 
@@ -80,7 +75,7 @@ For these cases, the intepreter will recognise the pattern and dispatch an entir
 At first, this behaviour may seem unwieldly or opaque, but it’s a side effect of the simplicity of the interpeter’s control loop, which has benefits in other areas when considered on the whole.
 Special combinations are a sensible trade-off between the effort the interpreter has to put into understanding code and the effort the programmer has to put into writing efficient code.
 
-However, J is not dogmatic in its own niche to the effect of being blind to other areas of development.
+However, J is still open to implementing relevant languages features developed elsewhere.
 A nice example of this is ”structural under”—in short, this is a modifier (higher-order function) that allows you to take an array, reshape it somehow, perform some manipulation on the selected elements, and then put them back into the source array.
 To my knowledge, this concept originated in variants of APL that eventually morphed into BQN, and has since spread across other array languages—but not all.
 While work is still ongoing, it’s good to see that J can support adopting newer ideas developed from other languages and incorporate them into its own style.
@@ -126,7 +121,7 @@ When each program is satisfying, it’s easy to come back for more.
 By comparison, many of the languages I’ve picked up in the last four years—such as F#, Rust, Factor, Lisp, Haskell, and more—I don’t use nearly as frequently, in large part because the amount of work to arrive at answers for small things just isn’t worth it.
 The combination of a low threshold and high reward makes it an obvious choice for me.
 
-There are still areas of J which I haven’t explored—particularly jd, its database, and its object-oriented features.
+There are still areas of J which I haven’t explored—particularly its database jd, and its object-oriented features.
 I’m looking forward to exploring these in more detail to deepen my understanding of the languages.
 
 If you’re curious about J, I highly recommend giving it a try!
