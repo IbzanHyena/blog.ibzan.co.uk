@@ -65,10 +65,11 @@ Instead, it exposes tools to work with it, and rules for how operations can tran
 By giving the programmer the ability to interact with more types, J trades away some of the pure simplicty of a single numeric type for enhanced versatility.
 
 Another example of J picking a nuanced middle ground is its approach to code optimisations.
-The interpreter performs certain optimisations when it can detect them.
-However, you can also choose to use what J calls [“special combinations”][special-combinations] to provide a known optimisation to the compiler.
-For these cases, the intepreter will recognise the pattern and dispatch an entirely different codepath in C to handle it, designed for the specific case of the combination rather than the general case of all of its constituent parts.
-At first, this behaviour may seem unwieldly or opaque, but it’s a side effect of the simplicity of the interpeter’s control loop, which has benefits in other areas when considered on the whole.
+The interpreter performs certain optimisations when it can detect them; this is fairly typical for any language.
+However, you can also choose to write code using what J calls [“special combinations”][special-combinations].
+A special combination is a short snippet of code, typically two or three operations long, which the interpreter has special-case handling for.
+When they are used, the interpreter recognises the pattern and uses a dedicated code path to handle it rather than the standard implementations of the operators involved.
+At first, this explicit opt-in behaviour by changing the source code may seem unwieldly or opaque, but it’s a side effect of the simplicity of the interpeter’s control loop, which has benefits in other areas when considered on the whole.
 Special combinations are a sensible trade-off between the effort the interpreter has to put into understanding code and the effort the programmer has to put into writing efficient code.
 
 However, J is still open to implementing relevant languages features developed elsewhere.
