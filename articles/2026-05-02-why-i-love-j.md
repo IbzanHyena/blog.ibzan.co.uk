@@ -11,7 +11,7 @@ In this post, I want to write a bit about why I keep coming back to J, and what 
 When it comes to syntax, J, like most array languages, is ruthlessly efficient.
 
 Operator precedence doesn’t exist—everything is evaluated right-to-left.
-There are no needs for brackets to invoke functions, or even for extensive function signatures to exist.
+There is no need for brackets to invoke functions, or even for extensive function signatures to exist.
 Combined with the standard array language ability to perform practically all operations on entire arrays of values at once, rather than individual elements, J is a language of incredible brevity.
 
 Tacit programming, where arguments are omitted as data can just flow between code instead, promotes the ability to read _how_ data is being transformed, without needed to include temporary or repeated names, and this is something that like many array languages J excels in.
