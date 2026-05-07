@@ -30,10 +30,6 @@ In short, it makes it easy to prototype and refine one’s work: there is only t
 I frequently find myself writing a few characters of J, looking at the result, and then typing just a few more to perform the next step.
 Few languages give me such a lack of mental friction.
 
-Sometimes, words like brief and terse are used as a bit of a backhanded compliment.
-The main connotations are generally that, as well as being short, these languages are illegible or even completely impenetrable.
-
-
 More generally, fundamental programing skills like how to structure a program and break down a program into constituent parts haven’t gone away, but rather have different building blocks to work with.
 When an algorithm fits on one line, the functions you build can be bigger.
 
