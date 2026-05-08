@@ -34,7 +34,7 @@ Combined with the standard ability of array languages to manipulate entire array
 The benefit of this style is that it promotes the ability to read _how_ data is being transformed, rather than including a number of repeated variable names.
 This is something that array languages excel in, and J is no exception.
 
-[Modifier trains][trains] are one such manifestation of this, allowing for “invisible” composition of verbs together without an explicit invocation of some higher-order helper function (“invisible” with-quotes: they are only invisible in the sense that you have to know to look for them).
+[Modifier trains][trains] are one such manifestation of this, allowing for “invisible” composition of verbs together without an explicit invocation of some higher-order helper function (“invisible” with quotes: they are only invisible in the sense that you have to know to look for them).
 However, the influence of (mostly-)tacit programming runs deeper.
 Applying a sequence of functions to a single input can be expressed just by chaining the verbs together.
 It can be one of the harder bits of the language to get used to at first, but afterwards it’s an essential tool for writing good J.
