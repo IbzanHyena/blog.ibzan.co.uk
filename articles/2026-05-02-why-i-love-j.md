@@ -72,7 +72,7 @@ The breadth of primitives segues nicely to what I consider to be one of J’s st
 
 Some array languages, such as BQN and uiua, have only one or two numeric types in the form of double-precision floating-point numbers.
 This is fine for most use cases.
-Hell, doubles can fit integers up to 2^53-1 just fine.
+Hell, doubles can fit integers up to <span class="lining">2<span class="sups">53</span>–1</span> just fine.
 
 But it isn’t fine for _all_ use cases.
 
