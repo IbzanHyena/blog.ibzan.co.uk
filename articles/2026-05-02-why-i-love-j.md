@@ -11,7 +11,7 @@ In this post, I want to write a bit about why I keep coming back to J, and what 
 Compared to other programming languages, J uses some different terms to refer to its constituent parts.
 Briefly:
 
-- an _noun_ is data of some kind, like a number of a string, organised in an array;
+- a _noun_ is data of some kind, like a number of a string, organised in an array;
 - a _verb_ is a essentially a (non-higher-order) function—they act on and return nouns;
 - a _modifier_ is a higher-order function—they act on and return verbs;
 - and a _primitive_ or _operator_ is one of the built-in symbolic verbs or modifiers.
