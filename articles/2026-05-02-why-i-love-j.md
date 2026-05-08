@@ -16,8 +16,12 @@ Briefly:
 - a _modifier_ is a higher-order function—they act on and return verbs;
 - and a _primitive_ or _operator_ is one of the built-in symbolic verbs or modifiers.
 
+Also, to be clear, arrays in J are flat and rectangular.
+This means an array can have any number of dimensions, but each row of a 2D array must have the same number of elements, and each layer of a 3D array is a 2D array of the same shape, and so forth.
+Jagged structures are disallowed.
+
 There are some simplifications there, but it will serve well enough for this blog post.
-If you want to learn more, check the J wiki page on [parts of speech][parts-of-speech].
+If you want to learn more, check the J wiki page on [parts of speech][parts-of-speech] and [nouns][nouns].
 
 ## Practical expressiveness
 
@@ -154,6 +158,7 @@ Thanks for reading!
 [APL]: https://aplwiki.com
 [BQN]: https://mlochbaum.github.io/BQN/
 [jsoftware]: https://www.jsoftware.com/#/
+[nouns]: https://code.jsoftware.com/wiki/Vocabulary/Nouns
 [nuvoc]: https://code.jsoftware.com/wiki/NuVoc
 [parts-of-speech]: https://code.jsoftware.com/wiki/Vocabulary/PartsOfSpeech
 [playground]: https://jsoftware.github.io/j-playground/bin/html2/
