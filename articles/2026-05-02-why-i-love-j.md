@@ -88,7 +88,7 @@ Special combinations are a sensible trade-off between the effort the interpreter
 
 However, J is still open to implementing relevant language features developed elsewhere.
 A nice example of this is ”structural under”.
-In short, this is a modifier (higher-order function) which can select some elements from array, apply some verb to them, and then put the modified elements back into the array where they came from, like a selective edit.
+In short, this is a modifier (higher-order function) which can select some elements from an array, apply some verb to them, and then put the modified elements back into the array where they came from, like a selective edit.
 To my knowledge, this concept originated in variants of APL that eventually morphed into BQN, and has since spread across other array languages—but not all.
 While work is still ongoing, it’s good to see that J can support adopting newer ideas developed from other languages and incorporate them into its own style.
 
