@@ -125,7 +125,7 @@ It’s possible, just not nearly as pleasant.
 That said, I still chose to write the markdown parser and blog generator for this site in J—it’s entirely possible to write typical software in the language.
 
 J also lacks a strong type system or tools to enforce typing efficiently.
-More relevantly, J also lacks a convenient interface to enforce the _shapes_ of arrays, which is extremely relevant to any array language—although I am not away of any that have this capability except [repa][repa].
+More relevantly, J also lacks a convenient interface to enforce the _shapes_ of arrays, which is extremely relevant to any array language—although I am not aware of any that have this capability except [repa][repa].
 This makes validating data passing through the program (and especially heterogeneous data) a pain, which is exactly what many typical programs must do.
 
 The real Achilles heel for typical software is the lack of an ecosystem for certain areas.
